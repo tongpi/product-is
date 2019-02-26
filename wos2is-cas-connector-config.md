@@ -6,6 +6,12 @@
 # 2、操作步骤
 
 ## 2.1 规划IS身份服务器的域名:is.wc.mtn
+* 打开<IS_HOME>\repository\carbon.xml文件，修改如下了个配置:
+
+```xml
+    <HostName>is.wc.mtn</HostName>
+    <MgtHostName>is.wc.mtn</MgtHostName>
+```
 ## 2.2 给is服务器的证书存储库(<IS_HOME>\repository\resources\security\wso2carbon.jks)中添加证书,IS Server使用该证书来进行TLS传输
 
 ```shell
