@@ -5,14 +5,22 @@
 [在IS中配置cas Inbound Authenticator](https://docs.wso2.com/display/ISCONNECTORS/Configuring+CAS+Inbound+Authenticator)
 # 2、操作步骤
 
-## 2.1 规划IS身份服务器的域名:is.wc.mtn
+## 2.1 给IS部署cas构件
+* 添加org.wso2.carbon.identity.sso.cas-2.0.X.jar文件到<IS_HOME>/repository/components/dropins目录下即可
+
+下载地址：http://product-dist.wso2.com/downloads/is-connectors/2.0.0/cas/org.wso2.carbon.extension.identity.sso.cas-2.0.1.jar
+或者下载源码进行编译：git clone https://github.com/wso2-extensions/identity-inbound-auth-cas.git
+
+> cas构件部署成功后，启动is，在is的管理控制台的服务提供者(service providers)添加页面上的入站认证器配置(Inbound Authentication Configuration)下多出来一个CAS Configuration，如何配置，请参考[在IS中配置cas Inbound Authenticator](https://docs.wso2.com/display/ISCONNECTORS/Configuring+CAS+Inbound+Authenticator)
+
+## 2.2 规划IS身份服务器的域名:is.wc.mtn
 * 打开<IS_HOME>\repository\carbon.xml文件，修改如下了个配置:
 
 ```xml
     <HostName>is.wc.mtn</HostName>
     <MgtHostName>is.wc.mtn</MgtHostName>
 ```
-## 2.2 给is服务器的证书存储库(<IS_HOME>\repository\resources\security\wso2carbon.jks)中添加证书,IS Server使用该证书来进行TLS传输
+## 2.3 给is服务器的证书存储库(<IS_HOME>\repository\resources\security\wso2carbon.jks)中添加证书,IS Server使用该证书来进行TLS传输
 
 ```shell
 cd <IS_HOME>\repository\resources\security
@@ -20,7 +28,7 @@ keytool -genkey -alias is.wc.mtn -keyalg RSA -keystore wso2carbon.jks -storepass
 ```
 > 注意：当提示“您的名字与姓氏是什么?”时，不能随便给，必须与IS身份服务器的域名一致，如：is.wc.mtn，其它的提示可随意填写，但最好有意义。
 
-## 2.3 将IS服务器证书存储库(<IS_HOME>\repository\resources\security\wso2carbon.jks)中的证书导出到<JAVA_HOME>\jre\lib\security\cacerts证书存储库中,以便cas客户端应用使用该证书来访问IS服务器
+## 2.4 将IS服务器证书存储库(<IS_HOME>\repository\resources\security\wso2carbon.jks)中的证书导出到<JAVA_HOME>\jre\lib\security\cacerts证书存储库中,以便cas客户端应用使用该证书来访问IS服务器
 
 ```shell
 cd <IS_HOME>\repository\resources\security
@@ -33,9 +41,9 @@ keytool -import -alias is.wc.mtn -file is.wc.mtn.crt -keystore %JAVA_HOME%/jre/l
 ```
 > 注意: changeit是%JAVA_HOME%/jre/lib/security/cacerts这个证书存储库的默认密码
 
-## 2.4 在IS中添加并配置服务提供者
+## 2.5 在IS中添加并配置服务提供者
 参见：[在IS中配置cas Inbound Authenticator](https://docs.wso2.com/display/ISCONNECTORS/Configuring+CAS+Inbound+Authenticator)
-## 2.5 测试SSO
+## 2.6 测试SSO
 参见：[在IS中配置cas Inbound Authenticator](https://docs.wso2.com/display/ISCONNECTORS/Configuring+CAS+Inbound+Authenticator)
 
 # 附录一 CAS-client-webapp的编写与配置
