@@ -25,6 +25,8 @@
 ```shell
 cd <IS_HOME>\repository\resources\security
 keytool -genkey -alias is.wc.mtn -keyalg RSA -keystore wso2carbon.jks -storepass wso2carbon
+#或者
+keytool -genkey -alias is.wd.mtn -keyalg RSA  -validity 9999 -dname "EMAILADDRESS=admin@wd.mtn, CN=is.wd.mtn, O=长城数字, L=西安, S=陕西, C=CN, OU=安全中心"  -keystore wso2carbon.jks -storepass wso2carbon
 ```
 > 注意：当提示“您的名字与姓氏是什么?”时，不能随便给，必须与IS身份服务器的域名一致，如：is.wc.mtn，其它的提示可随意填写，但最好有意义。
 
