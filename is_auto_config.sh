@@ -12,7 +12,7 @@
 #======================================================================================================
 export IS_HOST_NAME=is.cd.mtn
 export IS_HOME=/opt/wangf/wso2is/certs-work/wso2is-5.7.0
-export JAVA_HOME=
+export JAVA_HOME=/opt/java/jdk1.8.0_144
 export IS_PORTS_OFFSET=0
 export IS_SERVER_DISPLAY_NAME=统一身份服务器
 #-----------------------------------------------------------------------------------------
@@ -77,18 +77,28 @@ echo "别名为$IS_HOST_NAME 的IS服务器公钥已经导入到IS的客户端�
 keytool -import -v -trustcacerts -noprompt -alias $IS_HOST_NAME -file $WSO2CARBON_CRT_FILE -keystore $JRE_LIB_SECURITY_CACERTS -keypass changeit -storepass changeit   > /dev/null 2>&1
 echo "别名为$IS_HOST_NAME 的IS服务器公钥已经导入到JRE的安全证书库$JRE_LIB_SECURITY_CACERTS中."
 #-------------------------------------------------------------------------------------------
-
 # 替换carbon.xml文件的配置
 sed -i "s/ISO-8859-1/UTF-8/g" $IS_HOME/repository/conf/carbon.xml
 sed -i "s/<Name>WSO2 Identity Server/<Name>$IS_SERVER_DISPLAY_NAME/g" $IS_HOME/repository/conf/carbon.xml
 sed -i "s/localhost/$IS_HOST_NAME/g" $IS_HOME/repository/conf/carbon.xml
 sed -i "s/<Offset>0</<Offset>$IS_PORTS_OFFSET</g" $IS_HOME/repository/conf/carbon.xml
+#-------------------------------------------------------------------------------------------
+#给IS部署cas构件
+# 添加org.wso2.carbon.identity.sso.cas-2.0.X.jar文件到$IS_HOME//repository/components/dropins目录下即可
+cp ./org.wso2.carbon.extension.identity.sso.cas-2.0.2.jar $IS_HOME//repository/components/dropins/
+#-------------------------------------------------------------------------------------------
 # 转换编码
 iconv -s -f ISO-8859-1 -t UTF-8 $IS_HOME/bin/wso2server.sh  > /dev/null 2>&1
 iconv -s -f ISO-8859-1 -t UTF-8 $IS_HOME/repository/conf/carbon.xml > /dev/null 2>&1
+#-------------------------------------------------------------------------------------------
 # 去掉^M  也可以用dos2unix来转换，但dos2unix需要安装
 # sed -i "s/\r//g"  $IS_HOME/bin/wso2server.sh
 find $IS_HOME/bin/  -name "*.sh" |xargs sed -i 's/\r//'
+#-------------------------------------------------------------------------------------------
+# 自动给hosts添加主机域名解析
+#temptemp="$(ifconfig -a | grep inet | grep -v 127.0.0.1 | grep -v inet6 | awk '{print $2}' | tr -d "addrs:" | tail -n 1)" |echo $temptemp	$IS_HOST_NAME  >>/etc/hosts
+
+
 echo
 echo "========================================================"
 echo "恭喜！！！       IS服务器已经配置完毕，可以启动起来看看了."
