@@ -17,6 +17,7 @@
  -->
 <product xmlns="http://products.wso2.org/carbon">
     <properties>
+       <property name="webAdminConsoleTitle">身份融合管理控制台</property>
        <property name="userforum">http://stackoverflow.com/questions/tagged/wso2is/</property>
        <property name="userguide">https://docs.wso2.com/display/IS570/WSO2+Identity+Server+Documentation</property>
        <property name="mailinglist">http://wso2.org/mail</property>
