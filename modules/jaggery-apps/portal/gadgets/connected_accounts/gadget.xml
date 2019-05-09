@@ -36,8 +36,8 @@
         </script>
 
         <div class='icon-retweet icon-user-retweet icon-marketing-styles'></div>
-        <p>Manage Associated User Accounts & Federated IDs.</p>
-        <p><a class='btn btn-default max_view' href=''>View details</a></p>
+        <p>管理关联账户和联邦账户.</p>
+        <p><a class='btn btn-default max_view' href=''>查看详情</a></p>
         ]]>
     </Content>
 
@@ -107,14 +107,14 @@
         <form id="gadgetForm" class="form-horizontal" >
         	<div class="connectedDiv">
         	<br>
-	        <button id="connectBtn" class="btn btn-primary mgL14px" type="button" >Add Association</button>
+	        <button id="connectBtn" class="btn btn-primary mgL14px" type="button" >添加关联账户</button>
 	        <br>
             <div id="gadgetBody" class="gadgetBodyScrollbar"></div>
             <br>
             </div>
 	        <div id="message"></div>
         </form>
-        <div id="light" class="white_content associationWindow" style="width: initial;height: initial;">This is the lightbox content. <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a></div>
+        <div id="light" class="white_content associationWindow" style="width: initial;height: initial;">这是灯箱内容. <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">关闭</a></div>
         <div id="fade" class="black_overlay"></div>
 
         ]]>

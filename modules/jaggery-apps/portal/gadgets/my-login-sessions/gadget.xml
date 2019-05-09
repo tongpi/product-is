@@ -53,8 +53,8 @@
 
 	</script>
         <div class='icon-th-list icon-th-list-user icon-marketing-styles'></div>
-    Manage login sessions.
-    <p><a class='btn btn-default max_view' href=''>View details</a></p>
+    管理登录会话.
+    <p><a class='btn btn-default max_view' href=''>查看详情</a></p>
         ]]>
     </Content>
 
@@ -113,7 +113,7 @@
 		        "    <div class=\"modal-content\">\n" +
 		        "      <div class=\"modal-header\">\n" +
 		        "        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n" +
-		        "        <h3 class=\"modal-title\">Modal title</h4>\n" +
+		        "        <h3 class=\"modal-title\">标题</h4>\n" +
 		        "      </div>\n" +
 		        "      <div class=\"modal-body\">\n" +
 		        "        <p>One fine body&hellip;</p>\n" +
@@ -203,10 +203,10 @@
             "        <table class=\"table table-bordered\">\n" +
             "            <thead>\n" +
             "                <tr>\n" +
-            "                    <th class='txtAlnCen width30p'>IP Address</th>\n" +
-            "                    <th class='txtAlnCen width30p'>User Agent</th>\n" +
-            "                    <th class='txtAlnCen width30p'>Started Time</th>\n" +
-            "                    <th class='txtAlnCen'>Actions</th>\n" +
+            "                    <th class='txtAlnCen width30p'>IP 地址</th>\n" +
+            "                    <th class='txtAlnCen width30p'>用户代理</th>\n" +
+            "                    <th class='txtAlnCen width30p'>会话开始时间</th>\n" +
+            "                    <th class='txtAlnCen'>操作</th>\n" +
             "                </tr>\n" +
             "            </thead>\n" +
             "            <tbody>\n";
@@ -219,7 +219,7 @@
                          "<td>" + jsonData[i].IP + "</td>\n" +
                          "<td>" + jsonData[i].userAgent + "</td>\n" +
                          "<td>" + jsonData[i].startTimestamp + "</td>\n" +
-                         "<td>" + ' <input class="btn btn-primary" type="button" value="Terminate" onclick="terminate(\''+ jsonData[i].sessionId +'\')"> '  + "</td>\n" +
+                         "<td>" + ' <input class="btn btn-primary" type="button" value="终止会话" onclick="terminate(\''+ jsonData[i].sessionId +'\')"> '  + "</td>\n" +
                          "</tr>";
             }
                 $("#gadgetBody").empty();

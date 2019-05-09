@@ -56,8 +56,8 @@
     </script>
 
     <div class='icon-tasks icon-user-tasks icon-marketing-styles'></div>
-    Approve or Disapprove tasks.
-    <p><a class='btn btn-default max_view' href=''>View details</a></p>
+    批准或不批准待审批任务.
+    <p><a class='btn btn-default max_view' href=''>查看详情</a></p>
     ]]>
     </Content>
 
@@ -156,7 +156,7 @@
         <div id="message"></div>
         <input type="hidden" id="tokenResponse" name="tokenResponse" value="ishara"/>
     </form>
-    <div id="light" class="white_content associationWindow" style="width: 35%;height: 45%;">This is the lightbox content. <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a></div>
+    <div id="light" class="white_content associationWindow" style="width: 35%;height: 45%;">这是灯箱的内容. <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">关闭</a></div>
     <div id="fade" class="black_overlay"></div>
     ]]>
     </Content>

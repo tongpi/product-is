@@ -138,11 +138,11 @@
             })
                     .done(function (data) {
                         cancel();
-                        //message({content:'Successfully saved changes to the profile',type:'info', cbk:function(){} });
+                        //message({content:'个人资料保存成功',type:'info', cbk:function(){} });
 
                     })
                     .fail(function () {
-                        message({content: 'Error while updating Profile', type: 'error', cbk: function () {
+                        message({content: '更新个人资料出错了', type: 'error', cbk: function () {
                         } });
 
                     })
@@ -169,12 +169,12 @@
 
 
                                 if (data.errorCode == "4") {
-                                    message({content: 'Device already registered', type: 'info', cbk: function () {
+                                    message({content: '设备已注册', type: 'info', cbk: function () {
                                     } });
 
                                 }
                                 else {
-                                    message({content: 'Error while registering the device', type: 'error', cbk: function () {
+                                    message({content: '注册设备出错了', type: 'error', cbk: function () {
                                     } });
                                 }
                                 return;
@@ -187,12 +187,12 @@
                                 data: $('#fidoForm').serialize() + "&profileConfiguration=default" + "&cookie=" + cookie + "&user=" + userName
                             })
                                     .done(function (data) {
-                                        message({content: 'Device registered successfully ', type: 'info', cbk: function () {
+                                        message({content: '设备注册成功 ', type: 'info', cbk: function () {
                                         } });
 							drawFIDORegistration();
                                     })
                                     .fail(function () {
-                                        message({content: 'Error while updating Profile', type: 'error', cbk: function () {
+                                        message({content: '更新个人资料出错了', type: 'error', cbk: function () {
                                         } });
 
                                     });
@@ -208,7 +208,7 @@
                     "    <div class=\"modal-content\">\n" +
                     "      <div class=\"modal-header\">\n" +
                     "        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n" +
-                    "        <h3 class=\"modal-title\">Modal title</h4>\n" +
+                    "        <h3 class=\"modal-title\">标题</h4>\n" +
                     "      </div>\n" +
                     "      <div class=\"modal-body\">\n" +
                     "        <p>One fine body&hellip;</p>\n" +
@@ -219,7 +219,7 @@
                     "  </div>\n" +
                     "</div>";
             $("#message").append(element);
- var msg = "You are about to remove device registered on '" + deviceRemarks + "'. Do you want to proceed?";
+ var msg = "你将要移除注册在 '" + deviceRemarks + "'的设备. 要继续处理吗?";
     message({content: msg, type: 'confirm', okCallback: function () {
 
             var str = "/portal/gadgets/user_profile/controllers/my-profile/fido-remove.jag";
@@ -234,7 +234,7 @@ drawFIDORegistration();
 
                     })
                     .fail(function () {
-                        message({content: 'Error while updating Profile', type: 'error', cbk: function () {
+                        message({content: '更新个人资料出错了', type: 'error', cbk: function () {
                         } });
 
                     })
@@ -252,7 +252,7 @@ drawFIDORegistration();
                     "    <div class=\"modal-content\">\n" +
                     "      <div class=\"modal-header\">\n" +
                     "        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n" +
-                    "        <h3 class=\"modal-title\">Modal title</h4>\n" +
+                    "        <h3 class=\"modal-title\">标题</h4>\n" +
                     "      </div>\n" +
                     "      <div class=\"modal-body\">\n" +
                     "        <p>One fine body&hellip;</p>\n" +
@@ -277,7 +277,7 @@ drawFIDORegistration();
 
                     })
                     .fail(function () {
-                        message({content: 'Error while updating Profile', type: 'error', cbk: function () {
+                        message({content: '更新个人资料出错了', type: 'error', cbk: function () {
                         } });
 
                     })
@@ -299,7 +299,7 @@ drawFIDORegistration();
                             document.getElementById('qrContainer').style.display = 'none';
 			          })
 			          .fail(function () {
-			                message({content:'error while resetting totp',type:'error', cbk:function(){} });
+			                message({content:'重置totp出错了',type:'error', cbk:function(){} });
 
 			          })
 			          .always(function () {
@@ -319,7 +319,7 @@ drawFIDORegistration();
                             toggleFunction();
 			         })
 			         .fail(function () {
-			              message({content:'error while resetting totp',type:'error', cbk:function(){} });
+			              message({content:'重置totp出错了',type:'error', cbk:function(){} });
 
 			         })
 			         .always(function () {

@@ -36,8 +36,8 @@
         </script>
 
         <div class='icon-key icon-key-dashboard icon-marketing-styles'></div>
-        <p>Change current account password.</p>
-        <p><a class='btn btn-default max_view' href=''>View details</a></p>
+        <p>修改当前登录账户的密码.</p>
+        <p><a class='btn btn-default max_view' href=''>查看详情</a></p>
         ]]>
     </Content>
 
@@ -117,16 +117,16 @@
                                    message({content: resp.message, type: 'error', cbk: function () {
                                    }});
                                } else {
-                                   message({content: 'Error occurred while updating password.', type: 'error', cbk: function () {
+                                   message({content: '修改密码出错了.', type: 'error', cbk: function () {
                                    }});
                                }
                            }
                        }
-			//message({content:'Successfully changed the password',type:'info', cbk:function(){} });
+			//message({content:'密码修改成功',type:'info', cbk:function(){} });
 
                         })
                         .fail(function () {
-			message({content:'Error while changing the password',type:'error', cbk:function(){} });
+			message({content:'修改密码出错了',type:'error', cbk:function(){} });
                             console.log('error');
 
                         })

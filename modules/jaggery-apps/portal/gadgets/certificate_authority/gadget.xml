@@ -6,8 +6,8 @@
     <Content type="html" view="default">
         <![CDATA[
         <div class='icon-file icon-lock-dashboard icon-marketing-styles'></div>
-        <p>Manage your certificates and Certificate Signing Requests</p>
-        <p><a class='btn btn-default max_view' href=''>View details</a></p>
+        <p>管理我的证书和证书签名申请</p>
+        <p><a class='btn btn-default max_view' href=''>查看详情</a></p>
 
         <link rel="stylesheet" href="/portal/gadgets/certificate_authority/js/ui/css/main.css">
         <link rel="stylesheet" href="/portal/gadgets/certificate_authority/js/ui/css/bootstrap.css">
@@ -103,8 +103,8 @@
                         .done(function (data) {
                           var csrDetails = jQuery.parseJSON(data);
                           message({
-                          content:'Certificate Signing Request has been successfully sent (Serial Number : '+csrDetails.serialNo
-                          +') Click ok to download your private key',
+                          content:'证书签名申请已被成功发送 (序列号 : '+csrDetails.serialNo
+                          +') 点击 ok 下载你的私钥',
                           type:'ok',
                           cbk:function(){
                             download(csrDetails.serialNo,'.key',csrDetails.pk);
@@ -114,7 +114,7 @@
 
                         })
                         .fail(function () {
-                        message({content:'Error while Sending Certificate Signing Request',type:'error', cbk:function(){} });
+                        message({content:'发送证书签名申请出错了',type:'error', cbk:function(){} });
 
                         })
                         .always(function () {
@@ -126,7 +126,7 @@
               function sendUploadedCSRToAdmin(csr) {
 
                if (!csr.replace(/\s/g, '').length) {
-                    message({content:'Pleas upload or paste a Certificate Signing Request before sending!', type:'warning', cbk:function () {
+                    message({content:'发送前请首先上传或粘贴证书签名申请!', type:'warning', cbk:function () {
                     uploadCSR();
                      } });
                  }else{
@@ -143,7 +143,7 @@
                         var csrDetails = jQuery.parseJSON(data);
 
                    message({
-                          content:'Certificate Signing Request has been successfully sent (Serial Number : '+csrDetails.return+')',
+                          content:'证书签名申请已被成功发送 (序列号 : '+csrDetails.return+')',
                           type:'ok',
                           cbk:function(){
                            drawOptionPage();
@@ -151,7 +151,7 @@
                            });
                         })
                         .fail(function () {
-                        message({content:'Error while Sending Certificate Signing Request',type:'error', cbk:function(){} });
+                        message({content:'发送证书签名申请出错了',type:'error', cbk:function(){} });
 
                         })
                         .always(function () {
@@ -182,7 +182,7 @@
 
                         })
                         .fail(function () {
-                        message({content:'Error while Sending Certificate Signing Request',type:'error', cbk:function(){} });
+                        message({content:'发送证书签名申请出错了',type:'error', cbk:function(){} });
 
                         })
                         .always(function () {
@@ -208,7 +208,7 @@
 
                         })
                         .fail(function () {
-                        message({content:'Error while Sending Certificate Signing Request',type:'error', cbk:function(){} });
+                        message({content:'发送证书签名申请出错了',type:'error', cbk:function(){} });
 
                         })
                         .always(function () {
@@ -239,7 +239,7 @@
 
                         })
                         .fail(function () {
-                        message({content:'Error while Sending Certificate Signing Request',type:'error', cbk:function(){} });
+                        message({content:'发送证书签名申请出错了',type:'error', cbk:function(){} });
 
                         })
                         .always(function () {

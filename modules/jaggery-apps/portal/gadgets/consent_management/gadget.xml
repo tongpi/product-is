@@ -52,8 +52,8 @@
             </script>
 
             <div class='icon-check icon-repeat-dashboard icon-marketing-styles'></div>
-            <p>View and edit your consents</p>
-            <p><a class='btn btn-default max_view' href=''>View details</a></p>
+            <p>查看或修改我的同意</p>
+            <p><a class='btn btn-default max_view' href=''>查看详情</a></p>
         ]]>
     </Content>
 
@@ -129,7 +129,7 @@
                                         renderReceiptList(json);
                                     } else {
                                         var noContentAlert = '<div class="alert alert-info alert-custom">' +
-                                            '<span class="icon-info-sign icon-2x"></span> There are no consents to show for <strong>' + userName + '</strong></div>';
+                                            '<span class="icon-info-sign icon-2x"></span> 没有 <strong>' + userName + '的同意信息</strong></div>';
                                         $("#consent-listing").html(noContentAlert).show();
                                     }
                                 })
@@ -160,8 +160,8 @@
                         <div id="consent-listing" style="display:none;"></div>
                         <div id="consent-settings" style="display:none;"></div>
                         <div id="message"></div>
-                        <div id="light" class="white_content associationWindow" style="width: 35%;height: 45%;">This is the lightbox content.
-                            <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
+                        <div id="light" class="white_content associationWindow" style="width: 35%;height: 45%;">这是灯箱内容.
+                            <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">关闭</a>
                         </div>
                         <div id="fade" class="black_overlay"></div>
                     </div>

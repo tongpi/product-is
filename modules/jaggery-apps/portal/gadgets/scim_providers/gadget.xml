@@ -36,8 +36,8 @@
 	</script>
 
 	    <div class='icon-th icon-th-dashboard icon-marketing-styles'></div>
-        <p>Use WSO2 Identity Server to provision users and roles across heterogeneous identity management systems in a standard way</p>
-        <p><a class='btn btn-default max_view' href=''>View details</a></p>
+        <p>使用身份服务器以标准方式跨异构身份管理系统配置用户和角色</p>
+        <p><a class='btn btn-default max_view' href=''>查看详情</a></p>
         ]]>
     </Content>
 
@@ -84,7 +84,7 @@
                                     for (var i in json.return.fieldValues) {
                                         output+="<li>" + json.return.fieldValues[i].displayName + " <input type =text id="+i+" name =" +json.return.fieldValues[i].claimUri+" value = " + json.return.fieldValues[i].fieldValue +" > </type></li>";
                                     }
-                                    output+='</ul> <button onclick="myFunction()" type="button" >Click Me!</button> ';
+                                    output+='</ul> <button onclick="myFunction()" type="button" >点击这里!</button> ';
                                     $("#outputTitle").append(output);
                                 })
                                 .fail(function() {

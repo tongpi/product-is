@@ -38,8 +38,8 @@
     </script>
 
     <div class='icon-unlock-alt icon-unlock-alt-dashboard icon-marketing-styles'></div>
-    Download and Generate List of SMS OTP Backup Codes.
-    <p><a class='btn btn-default max_view' href=''>View details</a></p>
+    下载和生成短信一次性密码(OTP)备份码列表.
+    <p><a class='btn btn-default max_view' href=''>查看详情</a></p>
     ]]>
 </Content>
 
@@ -170,7 +170,7 @@
 			            };
                     })
                     .fail(function () {
-                        message({content: 'Error while updating Backup OTP Codes', type: 'error', cbk: function () {
+                        message({content: '更新备份OTP码出错了', type: 'error', cbk: function () {
                         } });
 
                     })
