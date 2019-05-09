@@ -37,8 +37,8 @@
 
 	</script>
         <div class='icon-th-list icon-th-list-user icon-marketing-styles'></div>
-    View or Kill Login Sessions.
-    <p><a class='btn btn-default max_view' href=''>View details</a></p>
+    查看或强行杀掉登录会话.
+    <p><a class='btn btn-default max_view' href=''>查看详情</a></p>
         ]]>
     </Content>
 
@@ -97,7 +97,7 @@
 		        "    <div class=\"modal-content\">\n" +
 		        "      <div class=\"modal-header\">\n" +
 		        "        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n" +
-		        "        <h3 class=\"modal-title\">Modal title</h4>\n" +
+		        "        <h3 class=\"modal-title\">标题</h4>\n" +
 		        "      </div>\n" +
 		        "      <div class=\"modal-body\">\n" +
 		        "        <p>One fine body&hellip;</p>\n" +
@@ -205,10 +205,10 @@
             "    <div class=\"container\">\n" +
             "        <div class=\"row\">\n" +
             "            <div class=\"col-md-6\">\n" +
-            "                <h4>Search User</h4>\n" +
+            "                <h4>搜索用户</h4>\n" +
             "                <div id=\"custom-search-input\">\n" +
             "                    <div style = 'width: 400px;' class=\"input-group col-md-12\">\n" +
-            "                        <input type=\"text\" class=\"form-control input-lg\" placeholder=\"Username\" style = 'height: 40px; font-size: 25px;' id=username />\n" +
+            "                        <input type=\"text\" class=\"form-control input-lg\" placeholder=\"用户名\" style = 'height: 40px; font-size: 25px;' id=username />\n" +
             "                        <span class=\"input-group-btn\">\n" +
             "                            <button onclick='search()' class=\"btn btn-info btn-lg\" type=\"button\">\n" +
             "                                <i class=\"glyphicon glyphicon-search\"></i>\n" +
@@ -223,11 +223,11 @@
             "        <table class=\"table table-bordered\">\n" +
             "            <thead>\n" +
             "                <tr>\n" +
-            "                    <th class='txtAlnCen width30p'>User Name</th>\n" +
-            "                    <th class='txtAlnCen width30p'>IP Address</th>\n" +
-            "                    <th class='txtAlnCen width30p'>User Agent</th>\n" +
-            "                    <th class='txtAlnCen width30p'>Started Time</th>\n" +
-            "                    <th class='txtAlnCen'>Actions</th>\n" +
+            "                    <th class='txtAlnCen width30p'>用户名</th>\n" +
+            "                    <th class='txtAlnCen width30p'>IP 地址</th>\n" +
+            "                    <th class='txtAlnCen width30p'>用户代理</th>\n" +
+            "                    <th class='txtAlnCen width30p'>会话开始时间</th>\n" +
+            "                    <th class='txtAlnCen'>操作</th>\n" +
             "                </tr>\n" +
             "            </thead>\n" +
             "            <tbody>\n";
@@ -241,7 +241,7 @@
                          "<td>" + jsonData[i].IP + "</td>\n" +
                          "<td>" + jsonData[i].userAgent + "</td>\n" +
                          "<td>" + jsonData[i].startTimestamp + "</td>\n" +
-                         "<td>" + ' <input class="btn btn-primary" type="button" value="Terminate" onclick="terminate(\''+ jsonData[i].sessionId +'\')"> '  + "</td>\n" +
+                         "<td>" + ' <input class="btn btn-primary" type="button" value="终止会话" onclick="terminate(\''+ jsonData[i].sessionId +'\')"> '  + "</td>\n" +
                          "</tr>";
             }
                 $("#gadgetBody").empty();
