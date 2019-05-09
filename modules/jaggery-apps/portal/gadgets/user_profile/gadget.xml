@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-<ModulePrefs title="My Profile">
+<ModulePrefs title="我的个人资料">
     <Require feature="pubsub-2"/>
 </ModulePrefs>
 <Content type="html" view="default">
@@ -38,8 +38,8 @@
     </script>
 
     <div class='icon-user icon-user-dashboard icon-marketing-styles'></div>
-    Update your profile or add multiple user profiles.
-    <p><a class='btn btn-default max_view' href=''>View details</a></p>
+    更新个人资料或添加多个用户个人资料.
+    <p><a class='btn btn-default max_view' href=''>查看详情</a></p>
     ]]>
 </Content>
 
