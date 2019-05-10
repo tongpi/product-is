@@ -7,7 +7,7 @@ function drawPage() {
         "              <table class=\"table\">\n" +
         "                  <thead>\n" +
         "                      <tr>\n" +
-        "                          <th colspan=\"2\">Manage Profile</th>\n" +
+        "                          <th colspan=\"2\">管理个人资料</th>\n" +
         "                      </tr>\n" +
         "                  </thead>\n" +
         "                  <tbody>\n" +
@@ -48,9 +48,9 @@ function drawPage() {
 
     }
     if (json.return.totpAuthenticatorActive) {
-                    body = body + "<tr><td><label class=\"control-label\">Refresh Secret Key</label>\n</td><td><div class=\"controls\">";
+                    body = body + "<tr><td><label class=\"control-label\">刷新 Secret Key</label>\n</td><td><div class=\"controls\">";
                     body = body + "<a class=\"control-label\" onclick=\"validateRefreshSecret();\">Click</a></div>\n<br></div></td></tr>";
-                    body = body + "<tr><td><label class=\"control-label\">Enable TOTP</label>\n</td><td><div class=\"controls\">";
+                    body = body + "<tr><td><label class=\"control-label\">启用 TOTP</label>\n</td><td><div class=\"controls\">";
                     if (totpEnabled != ""){
                             body += "<input type=\"checkbox\" checked name=\"totpenable\" onclick=\"validateCheckBox();\"/>\n<br><br>"+
                             "<div class=\"container\" style=\"padding-left:0px; padding-right:0px;\" id=\"qrContainer\">"+
@@ -105,12 +105,12 @@ function drawPage() {
     var endString ="<tr>\n" +
         "               <td colspan=\"2\">" +
         "                   <div style=\"margin: auto;\">" +
-        "                    <button id=\"connectFedBtn\" class=\"btn btn-default mgL14px\" onclick=\"drawFIDORegistration(this);\" type=\"button\" >Manage U2F Authentication</button>" +
+        "                    <button id=\"connectFedBtn\" class=\"btn btn-default mgL14px\" onclick=\"drawFIDORegistration(this);\" type=\"button\" >管理 U2F 认证</button>" +
         "                    </td></div></tr>"+
         "<tr><td colspan=\"2\">" +
-        "                        <input type=\"button\" onclick=\"validate();\" class=\"btn btn-primary\" value=\"Update\"/>\n" +
-        "                        <input type=\"button\" onclick=\"downloadUserInfo();\" class=\"btn btn-default\" value=\"Export\"/>\n" +
-        "                        <input type=\"button\" onclick=\"cancel();\" class=\"btn btn-default btn-cancel\" value=\"Cancel\"/>\n" +
+        "                        <input type=\"button\" onclick=\"validate();\" class=\"btn btn-primary\" value=\"更新\"/>\n" +
+        "                        <input type=\"button\" onclick=\"downloadUserInfo();\" class=\"btn btn-default\" value=\"导出\"/>\n" +
+        "                        <input type=\"button\" onclick=\"cancel();\" class=\"btn btn-default btn-cancel\" value=\"取消\"/>\n" +
         "                    </td></tr>" +
         "                  </tbody>\n" +
         "</table>"+
@@ -184,7 +184,7 @@ function validate() {
         "    <div class=\"modal-content\">\n" +
         "      <div class=\"modal-header\">\n" +
         "        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n" +
-        "        <h3 class=\"modal-title\">Modal title</h4>\n" +
+        "        <h3 class=\"modal-title\">标题</h4>\n" +
         "      </div>\n" +
         "      <div class=\"modal-body\">\n" +
         "        <p>One fine body&hellip;</p>\n" +
@@ -202,7 +202,7 @@ function validate() {
 
         if (json.return.fieldValues[i].required == "true") {
             if (validateEmpty(fldname).length > 0) {
-                message({title:"Missing Required Field Warning", content:displayName + ' is required',
+                message({title:"缺失必需字段", content:displayName + ' 是必填项',
                     type:'warning', cbk:function () {
                 } });
                 return false;
@@ -214,7 +214,7 @@ function validate() {
 
             var valid = reg.test(value);
             if (value != '' && !valid) {
-                message({title:"Invalid Input Field Warning", content:displayName + ' is not valid',
+                message({title:"输入值无效", content:displayName + ' 不符合要求',
                     type:'warning', cbk:function () {
                 } });
                 return false;
@@ -229,7 +229,7 @@ function validate() {
     for (i = 0; i < elements.length; i++) {
         if ((elements[i].type === 'text' || elements[i].type === 'password') &&
             elements[i].value != null && elements[i].value.match(unsafeCharPattern) != null) {
-            message({title:"Invalid Input Field Warning", content:'Unauthorized characters are specified' ,
+            message({title:"输入值无效", content:'包含不允许的字符' ,
                 type:'warning', cbk:function () {
             } });
             return false;
@@ -248,7 +248,7 @@ function validateEmpty(fldname) {
     }
     value = value.replace(/^\s+/, "");
     if (value.length == 0) {
-        error = fld.name + "(contains only spaces) ";
+        error = fld.name + "(包含空格) ";
         return error;
     }
     return error;
@@ -266,7 +266,7 @@ drawPage();
 
                },
                error: function (e) {
-                   message({content: 'Error occurred while loading values for the grid.', type: 'error', cbk: function () {
+                   message({content: '加载网格值时出错.', type: 'error', cbk: function () {
                    }});
                }
            });
@@ -274,7 +274,7 @@ drawPage();
 
 function deleteFIDOToken(deviceRemarks){
 
- var msg = "You are about to remove Id '" + username + "' From IDP '" + idPId + "'. Do you want to proceed?";
+ var msg = "你将要移除用户 Id '" + username + "' 从 IDP '" + idPId + "'. 要继续吗?";
     message({content: msg, type: 'confirm', okCallback: function () {
         $.ajax({
                    url: "/portal/gadgets/connected_accounts/index.jag",
@@ -292,14 +292,14 @@ function deleteFIDOToken(deviceRemarks){
                                    message({content: resp.message, type: 'error', cbk: function () {
                                    }});
                                } else {
-                                   message({content: 'Error occurred while deleting user account.', type: 'error', cbk: function () {
+                                   message({content: '删除用户账号出错了.', type: 'error', cbk: function () {
                                    }});
                                }
                            }
                        }
                    },
                    error: function (e) {
-                       message({content: 'Error occurred while deleting user account.', type: 'error', cbk: function () {
+                       message({content: '删除用户账号出错了.', type: 'error', cbk: function () {
                        }});
                    }
                });
@@ -325,7 +325,7 @@ if(data != null && "" != data){
                                "    <div class=\"container content-section-wrapper\">\n" +
                                "        <div class=\"row\">\n" +
                                "            <div class=\"col-lg-12 content-section\">\n" +
-       			       "                <legend>Manage FIDO U2F Device </legend>\n" +
+       			       "                <legend>管理 FIDO U2F 设备 </legend>\n" +
                                "                <form method=\"post\" class=\"form-horizontal\" id=\"associateForm\" name=\"selfReg\"  >\n";
                        var middle = "";
                    if (deviceMetadata != null && deviceMetadata.length > 0) {
@@ -334,8 +334,8 @@ if(data != null && "" != data){
                                "        <table class=\"table table-bordered\">\n" +
                                "            <thead>\n" +
                                "                <tr>\n" +
-                               "                    <th class='txtAlnCen width80p'>Device Remarks</th>\n" +
-                               "                    <th class='txtAlnCen'>Action</th>\n" +
+                               "                    <th class='txtAlnCen width80p'>设备备注</th>\n" +
+                               "                    <th class='txtAlnCen'>操作</th>\n" +
                                "                </tr>\n" +
                                "            </thead>\n";
 
@@ -344,9 +344,9 @@ if(data != null && "" != data){
                            for (var i in deviceMetadata) {
                                middle = middle +
                                          "                <tr>\n" +
-                                         "                    <td > Registration Time : " + deviceMetadata[i] + "</td>\n" +
+                                         "                    <td > 注册时间 : " + deviceMetadata[i] + "</td>\n" +
                                          "                    <td class='txtAlnCen'>\n" +
-                                         "                        <a title=\"\" onclick=\"removeFIDO('" + deviceMetadata[i] + "');\" href=\"javascript:void(0)\"><i class=\"icon-trash\"></i> Remove</a>\n" +
+                                         "                        <a title=\"\" onclick=\"removeFIDO('" + deviceMetadata[i] + "');\" href=\"javascript:void(0)\"><i class=\"icon-trash\"></i> 移除</a>\n" +
                                          "                    </td>\n" +
                                          "                </tr>\n";
                            }
@@ -355,9 +355,9 @@ if(data != null && "" != data){
 
                            middle = middle +
                                      "                <tr>\n" +
-                                     "                    <td > Registration Time : "  + deviceMetadata + "</td>\n" +
+                                     "                    <td > 注册时间 : "  + deviceMetadata + "</td>\n" +
                                      "                    <td class='txtAlnCen'>\n" +
-                                     "                        <a title=\"\" onclick=\"removeFIDO('" + deviceMetadata + "');\" href=\"javascript:void(0)\"><i class=\"icon-trash\"></i> Remove</a>\n" +
+                                     "                        <a title=\"\" onclick=\"removeFIDO('" + deviceMetadata + "');\" href=\"javascript:void(0)\"><i class=\"icon-trash\"></i> 移除</a>\n" +
                                      "                    </td>\n" +
                                      "                </tr>\n";
 
@@ -368,15 +368,15 @@ if(data != null && "" != data){
                                   "    </div>";
  }
 else {
-middle = middle + "<label > Device not registered yet please register your device ! </label>";
+middle = middle + "<label > 设备还未注册，请先注册你的设备 ! </label>";
 }
 
 
                        var end =
                                "                    <div class=\"control-group\">\n" +
                                "                        <div class=\"controls\">\n" +
-                               "                            <input type=\"button\" onclick=\"startFIDO();\" class=\"btn btn-primary\" style=\"margin-right: 5px;\" value=\"Attach FIDO Token\"/>\n" +
-                               "                            <input type=\"button\" onclick=\"drawPage();\" class=\"btn btn-default btn-cancel\" value=\"Done\"/>\n" +
+                               "                            <input type=\"button\" onclick=\"startFIDO();\" class=\"btn btn-primary\" style=\"margin-right: 5px;\" value=\"附加FIDO令牌\"/>\n" +
+                               "                            <input type=\"button\" onclick=\"drawPage();\" class=\"btn btn-default btn-cancel\" value=\"完成\"/>\n" +
                                "                        </div>\n" +
                                "                    </div></div>\n" +
                                "                </form>\n" +
@@ -392,7 +392,7 @@ middle = middle + "<label > Device not registered yet please register your devic
 
            },
            error: function (e) {
-               message({content: 'Error occurred while loading identity providers.', type: 'error', cbk: function () {
+               message({content: '加载身份提供者出错了.', type: 'error', cbk: function () {
                }});
            }
        });
@@ -420,7 +420,7 @@ function getQRCode(){
 }
 function validateRefreshSecret(){
     refreshSecretKey();
-    alert("SecretKey is refreshed. Please restore the secret key in your mobile app");
+    alert("SecretKey 已刷新. 请在你的移动App中重新恢复该SecretKey");
 }
 
 function getSecretKey(url){
