@@ -26,7 +26,7 @@ function validateEmpty(fldname) {
     }
     value = value.replace(/^\s+/, "");
     if (value.length == 0) {
-        error = fld.name + "(contains only spaces) ";
+        error = fld.name + "(包含空格) ";
         return error;
     }
     return error;
@@ -148,5 +148,3 @@ var message = function (params) {
         ]
     });
 };
-
-
