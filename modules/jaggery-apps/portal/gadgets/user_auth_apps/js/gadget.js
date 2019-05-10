@@ -6,9 +6,9 @@ function drawPage() {
         "        <table class=\"table table-bordered\">\n" +
         "            <thead>\n" +
         "                <tr>\n" +
-        "                    <th>Authorized Applications</th>\n" +
-        "                    <th>Application Developer</th>\n" +
-        "                    <th>Actions</th>\n" +
+        "                    <th>授权的应用</th>\n" +
+        "                    <th>应用开发者</th>\n" +
+        "                    <th>操作</th>\n" +
         "                </tr>\n" +
         "            </thead>\n" +
         "            <tbody>\n";
@@ -27,9 +27,9 @@ function drawPage() {
                 body = body + "                <tr>\n" +
                     "                    <td>" + json.return[i].applicationName + "</td>\n" +
                     "                    <td>" + username + "</td>\n" +
-                    "                    <td><a title=\"Remove Application\" onclick=\"validate('" + json.return[i].
+                    "                    <td><a title=\"移除应用\" onclick=\"validate('" + json.return[i].
                     applicationName + "');\"\n" +
-                    " href=\"javascript:void(0)\"><i class=\"icon-trash\"></i> Remove Application</a></td>\n" +
+                    " href=\"javascript:void(0)\"><i class=\"icon-trash\"></i> 移除应用</a></td>\n" +
                     "                </tr>\n";
             }
         }
@@ -44,9 +44,9 @@ function drawPage() {
             body = body + "                <tr>\n" +
                 "                    <td>" + json.return.applicationName + "</td>\n" +
                 "                    <td>" + username + "</td>\n" +
-                "                    <td><a title=\"Remove Application\" onclick=\"validate('" + json.return.
+                "                    <td><a title=\"移除应用\" onclick=\"validate('" + json.return.
                 applicationName + "');\"\n" +
-                " href=\"javascript:void(0)\"><i class=\"icon-trash\"></i> Remove Application</a></td>\n" +
+                " href=\"javascript:void(0)\"><i class=\"icon-trash\"></i> 移除应用</a></td>\n" +
                 "                </tr>\n";
         }
     }
@@ -72,7 +72,7 @@ function itemRemove(appName) {
 
         })
         .fail(function () {
-            message({content:'Error while removing Application ', type:'error', cbk:function () {
+            message({content:'移除应用出错 ', type:'error', cbk:function () {
             } });
             console.log('error');
 
@@ -101,7 +101,7 @@ function validate(appName) {
         "    <div class=\"modal-content\">\n" +
         "      <div class=\"modal-header\">\n" +
         "        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n" +
-        "        <h3 class=\"modal-title\">Modal title</h4>\n" +
+        "        <h3 class=\"modal-title\">标题</h4>\n" +
         "      </div>\n" +
         "      <div class=\"modal-body\">\n" +
         "        <p>One fine body&hellip;</p>\n" +
@@ -116,13 +116,9 @@ function validate(appName) {
 }
 
 function itemRemoveValidate(appName) {
-    var msg = "You are about to remove " + appName + ". Do you want to proceed?";
+    var msg = "你简要移除应用 " + appName + ". 确定要继续吗?";
     message({content:msg, type:'confirm', okCallback:function () {
         itemRemove(appName);
     }, cancelCallback:function () {
     }});
-} 
-
-
-
-
+}
