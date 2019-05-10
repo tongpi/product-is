@@ -8,9 +8,9 @@ function drawPage() {
             "        <table class=\"table table-bordered\">\n" +
             "            <thead>\n" +
             "                <tr>\n" +
-            "                    <th class='txtAlnCen width30p'>User ID</th>\n" +
-            "                    <th class='txtAlnCen width30p'>Identity Provider</th>\n" +
-            "                    <th class='txtAlnCen'>Actions</th>\n" +
+            "                    <th class='txtAlnCen width30p'>用户 ID</th>\n" +
+            "                    <th class='txtAlnCen width30p'>身份提供者</th>\n" +
+            "                    <th class='txtAlnCen'>操作</th>\n" +
             "                </tr>\n" +
             "            </thead>\n" +
             "            <tbody>\n";
@@ -22,7 +22,7 @@ function drawPage() {
                 middle = middle +
                     "                <tr>\n" +
                     "                    <td>" + json[i].fullUsername + "</td>\n" +
-                    "                    <td><i  class='resident-idp'></i>   Resident Identity Provider   </td>\n";
+                    "                    <td><i  class='resident-idp'></i>   自身身份提供者   </td>\n";
 
                 var connectedAccount = json[i].username;
                 if ('PRIMARY' != json[i].domain) {
@@ -34,7 +34,7 @@ function drawPage() {
 
                 middle = middle +
                     "                    <td>\n" +
-                    "                        <a title='' onclick=\"deleteUserAccountConnection('" + connectedAccount + "');\" href=\"javascript:void(0)\"><i class=\"icon-trash\"></i> \n" + "Remove</a>\n" +
+                    "                        <a title='' onclick=\"deleteUserAccountConnection('" + connectedAccount + "');\" href=\"javascript:void(0)\"><i class=\"icon-trash\"></i> \n" + "移除</a>\n" +
                     "                    </td>\n" +
                     "                </tr>\n";
             }
@@ -47,7 +47,7 @@ function drawPage() {
                     "                    <td>" + fedJson.list[i].username + "</td>\n" +
                     "                    <td><i class='fedarate'></i>   " + fedJson.list[i].idPName + "   </td>\n" +
                     "                    <td>\n" +
-                    "                        <a title=\"\" onclick=\"deleteFedUserAccountConnection('" + fedJson.list[i].idPName + "' ,'" + fedJson.list[i].username + "');\" href=\"javascript:void(0)\"><i class=\"icon-trash\"></i> Remove</a>\n" +
+                    "                        <a title=\"\" onclick=\"deleteFedUserAccountConnection('" + fedJson.list[i].idPName + "' ,'" + fedJson.list[i].username + "');\" href=\"javascript:void(0)\"><i class=\"icon-trash\"></i> 移除</a>\n" +
                     "                    </td>\n" +
                     "                </tr>\n";
             }
@@ -55,7 +55,7 @@ function drawPage() {
         if (noRaws) {
             middle = middle +
                 "<tr>" +
-                "<td colspan=\"3\"><i>No Accounts Found.</i></td>" +
+                "<td colspan=\"3\"><i>未找到账号.</i></td>" +
                 "</tr>";
         }
 
@@ -77,7 +77,7 @@ function isArray(element) {
 
 function deleteUserAccountConnection(delUser) {
 
-    var msg = "You are about to remove account '" + delUser + "'. Do you want to proceed?";
+    var msg = "你将要意移除 '" + delUser + "'. 要继续处理吗?";
     message({
         content: msg, type: 'confirm', okCallback: function () {
             $.ajax({
@@ -99,7 +99,7 @@ function deleteUserAccountConnection(delUser) {
                                 });
                             } else {
                                 message({
-                                    content: 'Error occurred while deleting user account.',
+                                    content: '移除用户账号出错了.',
                                     type: 'error',
                                     cbk: function () {
                                     }
@@ -110,7 +110,7 @@ function deleteUserAccountConnection(delUser) {
                 },
                 error: function (e) {
                     message({
-                        content: 'Error occurred while deleting user account.', type: 'error', cbk: function () {
+                        content: '移除用户账号出错了.', type: 'error', cbk: function () {
                         }
                     });
                 }
@@ -144,7 +144,7 @@ function reloadGrid() {
                         });
                     } else {
                         message({
-                            content: 'Error occurred while loading values for the grid.',
+                            content: '加载网格数据值时出错了.',
                             type: 'error',
                             cbk: function () {
                             }
@@ -155,7 +155,7 @@ function reloadGrid() {
         },
         error: function (e) {
             message({
-                content: 'Error occurred while loading values for the grid.', type: 'error', cbk: function () {
+                content: '加载网格数据值时出错了.', type: 'error', cbk: function () {
                 }
             });
         }
@@ -165,7 +165,7 @@ function reloadGrid() {
 function changeDropDownMenu() {
     if (json != null) {
         if (isArray(json)) {
-            var htmlContent = '<div class="dropdown_separator"><span class="switch_to_div">Switch To :</span></div>';
+            var htmlContent = '<div class="dropdown_separator"><span class="switch_to_div">切换到 :</span></div>';
             for (var i in json) {
                 var connectedAccount = json[i].username;
                 if ('PRIMARY' != json[i].domain) {
@@ -222,7 +222,7 @@ function reloadFedGrid(json) {
                         });
                     } else {
                         message({
-                            content: 'Error occurred while loading values for the grid.',
+                            content: '加载网格数据值时出错了.',
                             type: 'error',
                             cbk: function () {
                             }
@@ -233,7 +233,7 @@ function reloadFedGrid(json) {
         },
         error: function (e) {
             message({
-                content: 'Error occurred while loading values for the grid.', type: 'error', cbk: function () {
+                content: '加载网格数据值时出错了.', type: 'error', cbk: function () {
                 }
             });
         }
@@ -250,16 +250,16 @@ function drawFedPage() {
             "        <table class=\"table table-bordered\">\n" +
             "            <thead>\n" +
             "                <tr>\n" +
-            "                    <th class='txtAlnCen width40p'>Identity Provider</th>\n" +
-            "                    <th class='txtAlnCen width40p'>Federated User ID</th>\n" +
-            "                    <th class='txtAlnCen'>Action</th>\n" +
+            "                    <th class='txtAlnCen width40p'>身份提供者</th>\n" +
+            "                    <th class='txtAlnCen width40p'>联邦用户 ID</th>\n" +
+            "                    <th class='txtAlnCen'>操作</th>\n" +
             "                </tr>\n" +
             "            </thead>\n";
 
         var middle =
             "            <tbody>\n" +
             "                <tr>\n" +
-            "                    <td> Primary OpenID </td>" +
+            "                    <td> 主 OpenID </td>" +
             "                    <td>" + fedJson.primaryOpenID + "</td>\n" +
             "                    <td> </td>" +
             "                </tr>\n";
@@ -272,7 +272,7 @@ function drawFedPage() {
                     "                    <td>" + fedJson.list[i].idPName + "</td>\n" +
                     "                    <td>" + fedJson.list[i].username + "</td>\n" +
                     "                    <td class='txtAlnCen'>\n" +
-                    "                        <a title=\"\" onclick=\"deleteFedUserAccountConnection('" + fedJson.list[i].idPName + "' ,'" + fedJson.list[i].username + "');\" href=\"javascript:void(0)\"><i class=\"icon-trash\"></i> Remove</a>\n" +
+                    "                        <a title=\"\" onclick=\"deleteFedUserAccountConnection('" + fedJson.list[i].idPName + "' ,'" + fedJson.list[i].username + "');\" href=\"javascript:void(0)\"><i class=\"icon-trash\"></i> 移除</a>\n" +
                     "                    </td>\n" +
                     "                </tr>\n";
             }
@@ -290,7 +290,7 @@ function drawFedPage() {
 
 function deleteFedUserAccountConnection(idPId, username) {
 
-    var msg = "You are about to remove Id '" + username + "' From IDP '" + idPId + "'. Do you want to proceed?";
+    var msg = "你将要删除 Id '" + username + "' 从 IDP '" + idPId + "'. 确定要继续吗?";
     message({
         content: msg, type: 'confirm', okCallback: function () {
             $.ajax({
@@ -312,7 +312,7 @@ function deleteFedUserAccountConnection(idPId, username) {
                                 });
                             } else {
                                 message({
-                                    content: 'Error occurred while deleting user account.',
+                                    content: '删除用户账号出错了.',
                                     type: 'error',
                                     cbk: function () {
                                     }
@@ -323,7 +323,7 @@ function deleteFedUserAccountConnection(idPId, username) {
                 },
                 error: function (e) {
                     message({
-                        content: 'Error occurred while deleting user account.', type: 'error', cbk: function () {
+                        content: '删除用户账号出错了.', type: 'error', cbk: function () {
                         }
                     });
                 }
