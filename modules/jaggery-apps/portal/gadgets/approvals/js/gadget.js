@@ -29,7 +29,7 @@ function drawPage(engine) {
 function setEngines() {
     var servers = serverList;
     if (servers.length < 1) {
-        drawNoServerErrorpage("No connected BPEL profiles found.<br>Please try again.");
+        drawNoServerErrorpage("未找到BPEL资料.<br>请重试.");
     } else {
         accessingEngine = servers[0].host + "/HumanTaskClientAPIAdmin";
         serverList = servers;
@@ -41,7 +41,7 @@ function drawNoServerErrorpage(errorMessage) {
     var page = "<div class=\"col-lg-12 sectionSub\">" +
         "<table class=\"carbonFormTable\" style=\"width:100%; padding-left: 10px;\">" +
         "<tr>" +
-        "<td style=\"width:20%\" class=\"leftCol-med labelField\">BPEL Profile Engine :     </td>" +
+        "<td style=\"width:20%\" class=\"leftCol-med labelField\">BPEL 资料引擎 :     </td>" +
         "<td>" +
         "<select id=\"engine\" onchange='getList2()'>";
     for (var i = 0; i < serverList.length; i++) {
@@ -62,19 +62,19 @@ function drawTablepage(json, engineValue) {
     var dropDown = " <script type=\"text/javascript\" charset=\"utf-8\" src=\"https://cdn.datatables.net/1.10.0/js/jquery.dataTables.js\"></script><div class=\"col-lg-12 sectionSub\">" +
         "<table class=\"carbonFormTable\" style=\"width:100%; padding-left: 10px;\">" +
         "<tr>" +
-        "<td style=\"width:20%\" class=\"leftCol-med labelField\">Task Status :     </td>" +
+        "<td style=\"width:20%\" class=\"leftCol-med labelField\">任务状态 :     </td>" +
         "<td>" +
         "<select id=\"option\" onchange='changeOption()'>" +
-        "<option value=\"DEFAULT\">DEFAULT</option>" +
-        "<option value=\"READY\">READY</option>" +
-        "<option value=\"RESERVED\">RESERVED</option>" +
-        "<option value=\"COMPLETED\">COMPLETED</option>" +
-        "<option value=\"ALL_TASKS\">ALL_TASKS</option>" +
+        "<option value=\"DEFAULT\">缺省</option>" +
+        "<option value=\"READY\">已准备</option>" +
+        "<option value=\"RESERVED\">已保留</option>" +
+        "<option value=\"COMPLETED\">已完成</option>" +
+        "<option value=\"ALL_TASKS\">全部任务</option>" +
         "</select>" +
         "</td>" +
         "</tr>" +
         "<tr>" +
-        "<td style=\"width:20%\" class=\"leftCol-med labelField\">BPEL Profile Engine :     </td>" +
+        "<td style=\"width:20%\" class=\"leftCol-med labelField\">BPEL 资料引擎 :     </td>" +
         "<td>" +
         "<select id=\"engine\" onchange='getList2()'>";
 
@@ -96,11 +96,11 @@ function drawTablepage(json, engineValue) {
         "        <table id=\"task_list\" class=\"table table-bordered pagginated\">\n" +
         "            <thead>\n" +
         "                <tr>\n" +
-        "                    <th class='txtAlnCen width20p'>Task Id</th>\n" +
-        "                    <th class='txtAlnCen width20p'>Subject</th>\n" +
-        "                    <th class='txtAlnCen width20p'>Status</th>\n" +
-        "                    <th class='txtAlnCen width20p'>Priority</th>\n" +
-        "                    <th class='txtAlnCen'>Created On</th>\n" +
+        "                    <th class='txtAlnCen width20p'>任务 Id</th>\n" +
+        "                    <th class='txtAlnCen width20p'>任务标题</th>\n" +
+        "                    <th class='txtAlnCen width20p'>状态</th>\n" +
+        "                    <th class='txtAlnCen width20p'>优先级</th>\n" +
+        "                    <th class='txtAlnCen'>创建于</th>\n" +
         "                </tr>\n" +
         "            </thead>\n            <tbody>\n";
 
@@ -141,12 +141,12 @@ function drawTablepage(json, engineValue) {
         }
         if (hasRows == 0) {
             middle = middle + "<tr>" +
-                "<td colspan=\"6\"><i>No requests found.</i></td>" +
+                "<td colspan=\"6\"><i>未找到申请.</i></td>" +
                 "</tr>";
         }
     } else {
         middle = middle + "<tr>" +
-            "<td colspan=\"6\"><i>No requests found.</i></td>" +
+            "<td colspan=\"6\"><i>未找到申请.</i></td>" +
             "</tr>";
     }
 
@@ -210,7 +210,7 @@ function drawForm(xml, id, state) {
         " <div class=\"sectionSub\">" +
         "<table class=\"carbonFormTable\" style=\"width:100%\">" +
         "<tr>" +
-        "<td style=\"width:20%\" class=\"leftCol-med labelField\">Description :     </td>" +
+        "<td style=\"width:20%\" class=\"leftCol-med labelField\">描述 :     </td>" +
         "<td>" +
         "<textarea style=\"width:80%\" type=\"text\" name=\"sp-description\" id=\"sp-description\" class=\"text-box-big\" readonly>" +
         xml.getElementsByTagName("taskDescription")[0].textContent +
@@ -226,8 +226,8 @@ function drawForm(xml, id, state) {
         "        <table class=\"table table-bordered\">\n" +
         "            <thead>\n" +
         "                <tr>\n" +
-        "                    <th class='txtAlnCen width20p'>" + "Parameter" + "</th>" +
-        "                    <th class='txtAlnCen width20p'>" + "Value" + "</th>" +
+        "                    <th class='txtAlnCen width20p'>" + "参数名" + "</th>" +
+        "                    <th class='txtAlnCen width20p'>" + "参数值" + "</th>" +
         "                </tr>\n" +
         "            </thead>\n";
 
@@ -256,20 +256,20 @@ function drawForm(xml, id, state) {
 
     if (state == "RESERVED") {
 
-        end = end + "<td><input type='button' id='approveTaskButton' class=\"btn btn-primary\" onclick='approve_button_click(\"1\", \"" + id + "\")' ' value='Approve' style=\"float: left; margin-right:10px;\"/></td>" +
-            "<td><input type='button' id='disapprovetaskButton' class=\"btn btn-primary\" onclick='approve_button_click(\"2\", \"" + id + "\")' ' value='Disapprove' style=\"float: left; margin-right:10px;\"/></td>" +
+        end = end + "<td><input type='button' id='approveTaskButton' class=\"btn btn-primary\" onclick='approve_button_click(\"1\", \"" + id + "\")' ' value='批准' style=\"float: left; margin-right:10px;\"/></td>" +
+            "<td><input type='button' id='disapprovetaskButton' class=\"btn btn-primary\" onclick='approve_button_click(\"2\", \"" + id + "\")' ' value='拒绝' style=\"float: left; margin-right:10px;\"/></td>" +
             "<td><input type='button' id='releaseTaskButton' class=\"btn btn-primary\" onclick='startReleaseButtonClick(\"2\", \"" + id + "\")' ' value='Release' style=\"float: left; margin-right:10px;\"/></td>";
 
     } else if (state == "READY") {
 
-        end = end + "<td><input type='button' id='claimTaskButton' class=\"btn btn-primary\" onclick='startReleaseButtonClick(\"5\", \"" + id + "\")' ' value='Claim' style=\"float: left; margin-right:10px;\"/></td>" +
-            "<td><input type='button' id='approveTaskButton' class=\"btn btn-primary\" onclick='approve_button_click(\"1\", \"" + id + "\")' ' value='Approve' style=\"float: left; margin-right:10px;\"/></td>" +
-            "<td><input type='button' id='disapprovetaskButton' class=\"btn btn-primary\" onclick='approve_button_click(\"2\", \"" + id + "\")' ' value='Disapprove' style=\"float: left; margin-right:10px;\"/></td>";
+        end = end + "<td><input type='button' id='claimTaskButton' class=\"btn btn-primary\" onclick='startReleaseButtonClick(\"5\", \"" + id + "\")' ' value='声明' style=\"float: left; margin-right:10px;\"/></td>" +
+            "<td><input type='button' id='approveTaskButton' class=\"btn btn-primary\" onclick='approve_button_click(\"1\", \"" + id + "\")' ' value='批准' style=\"float: left; margin-right:10px;\"/></td>" +
+            "<td><input type='button' id='disapprovetaskButton' class=\"btn btn-primary\" onclick='approve_button_click(\"2\", \"" + id + "\")' ' value='拒绝' style=\"float: left; margin-right:10px;\"/></td>";
 
     } else if (state == "APPROVED" || state == "REJECTED") {
         end = end + "<table class=\"carbonFormTable\" style=\"width:100%\">" +
             "<tr>" +
-            "<td style=\"width:20%\" class=\"leftCol-med labelField\">Status :     </td>" +
+            "<td style=\"width:20%\" class=\"leftCol-med labelField\">状态 :     </td>" +
             "<td>" +
             "<textarea style=\"width:80%\" type=\"text\" name=\"sp-description\" id=\"sp-description\" class=\"text-box-big\" readonly>" +
             state +
@@ -278,7 +278,7 @@ function drawForm(xml, id, state) {
             "</tr>" +
             "</table><br><br>";
     }
-    end = end + "<td><input type='button' id='test' class=\"btn\" onclick='approve_button_click(\"3\", \"" + id + "\")' ' value='<< Back' style=\"float: left; margin-right:10px;\"/></td><br><br>" +
+    end = end + "<td><input type='button' id='test' class=\"btn\" onclick='approve_button_click(\"3\", \"" + id + "\")' ' value='<< 返回' style=\"float: left; margin-right:10px;\"/></td><br><br>" +
         " </div>" +
         "    </div>";
 
@@ -303,7 +303,7 @@ function approve_button_click(state, id) {
             "    <div class=\"modal-content\">\n" +
             "      <div class=\"modal-header\">\n" +
             "        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n" +
-            "        <h3 class=\"modal-title\">Modal title</h4>\n" +
+            "        <h3 class=\"modal-title\">标题</h4>\n" +
             "      </div>\n" +
             "      <div class=\"modal-body\">\n" +
             "        <p>One fine body&hellip;</p>\n" +
@@ -315,7 +315,7 @@ function approve_button_click(state, id) {
             "</div>";
         $("#message").append(element);
         message({
-            content: 'Are you sure you want to Approve this task?', type: 'warning', cbk: function () {
+            content: '确信要批准该任务吗?', type: 'warning', cbk: function () {
                 complete("APPROVED", id);
             }
         });
@@ -325,7 +325,7 @@ function approve_button_click(state, id) {
             "    <div class=\"modal-content\">\n" +
             "      <div class=\"modal-header\">\n" +
             "        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n" +
-            "        <h3 class=\"modal-title\">Modal title</h4>\n" +
+            "        <h3 class=\"modal-title\">标题</h4>\n" +
             "      </div>\n" +
             "      <div class=\"modal-body\">\n" +
             "        <p>One fine body&hellip;</p>\n" +
@@ -337,7 +337,7 @@ function approve_button_click(state, id) {
             "</div>";
         $("#message").append(element);
         message({
-            content: 'Are you sure you want to Disapprove this task?', type: 'warning', cbk: function () {
+            content: '确信要拒绝该任务吗?', type: 'warning', cbk: function () {
                 complete("REJECTED", id);
             }
         });
@@ -381,15 +381,15 @@ function getList(engine, serverCookie) {
         data: {cookie : serverCookie, endPoint : accessingEngine, user : userName},
         success: function (data) {
             if (data == "") {
-                drawNoServerErrorpage('Error occurred while retrieving human resource tasks.<br>Please try again. ');
+                drawNoServerErrorpage('获取人工任务时出错.<br>请重试. ');
             } else {
                 drawTablepage(data, engine);
             }
         },
         error: function (e) {
-            drawNoServerErrorpage('Error occurred while retrieving human resource tasks.<br>Please try again. ');
+            drawNoServerErrorpage('获取人工任务时出错.<br>请重试. ');
             message({
-                content: 'Error occurred while retrieving human resource tasks.', type: 'error', cbk: function () {
+                content: '获取人工任务时出错.', type: 'error', cbk: function () {
                 }
             });
         }
@@ -411,10 +411,10 @@ function getFormDetails(id, state) {
             }
         },
         error: function (e) {
-            drawNoServerErrorpage('Error occurred while retrieving task information.<br>Please try again. ');
+            drawNoServerErrorpage('获取任务信息时出错.<br>请重试. ');
 
             message({
-                content: 'Error occurred while retrieving task information.', type: 'error', cbk: function () {
+                content: '获取任务信息时出错.', type: 'error', cbk: function () {
                 }
             });
         }
@@ -436,9 +436,9 @@ function getCompletedState(oldData, id) {
             drawForm(oldData, id, newState);
         },
         error: function (e) {
-            drawNoServerErrorpage('Error occurred while retriening task information.<br>Please try again. ');
+            drawNoServerErrorpage('获取任务信息时出错.<br>请重试. ');
             message({
-                content: 'Error occurred while retriening task information.', type: 'error', cbk: function () {
+                content: '获取任务信息时出错.', type: 'error', cbk: function () {
                 }
             });
         }
@@ -456,9 +456,9 @@ function complete(command, id) {
             getFormDetails(id, "COMPLETED");
         },
         error: function (e) {
-            drawNoServerErrorpage('Error occurred while updating task.<br>Please try again. ');
+            drawNoServerErrorpage('更新任务信息时出错.<br>请重试. ');
             message({
-                content: 'Error occurred while updating task.', type: 'error', cbk: function () {
+                content: '更新任务信息时出错.', type: 'error', cbk: function () {
                 }
             });
         }
@@ -479,13 +479,11 @@ function start(requestType, id) {
             }
         },
         error: function (e) {
-            drawNoServerErrorpage('Error occurred while updating task.<br>Please try again. ');
+            drawNoServerErrorpage('更新任务信息时出错.<br>请重试. ');
             message({
-                content: 'Error occurred while updating task.', type: 'error', cbk: function () {
+                content: '更新任务信息时出错.', type: 'error', cbk: function () {
                 }
             });
         }
     });
 }
-
-
