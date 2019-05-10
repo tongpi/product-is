@@ -27,7 +27,7 @@ var confirmationDialog = "<div class=\"modal fade\" id=\"messageModal\">\n" +
     "    <div class=\"modal-content\">\n" +
     "      <div class=\"modal-header\">\n" +
     "        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n" +
-    "        <h3 class=\"modal-title\">Modal title</h4>\n" +
+    "        <h3 class=\"modal-title\">标题</h4>\n" +
     "      </div>\n" +
     "      <div class=\"modal-body\">\n" +
     "        <p>One fine body&hellip;</p>\n" +
@@ -42,7 +42,7 @@ var warningDialog = "<div class=\"modal fade\" id=\"messageModal\">\n" +
     "    <div class=\"modal-content\">\n" +
     "      <div class=\"modal-header\">\n" +
     "        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n" +
-    "        <h3 class=\"modal-title\">Modal title</h4>\n" +
+    "        <h3 class=\"modal-title\">标题</h4>\n" +
     "      </div>\n" +
     "      <div class=\"modal-body\">\n" +
     "        <p>One fine body&hellip;</p>\n" +
@@ -169,32 +169,32 @@ function updateReceipt(receiptData) {
  */
 function renderReceiptList(data) {
     var receiptData = data;
-    var content = '<div id="default-receipt"><h3>System Consents</h3>{{#default}}<div class="panel' +
+    var content = '<div id="default-receipt"><h3>系统级同意</h3>{{#default}}<div class="panel' +
         ' panel-default' +
         ' panel-consents">' +
         '<div class="panel-body flex-container">' +
         '<div class="left">' +
         '<h4>{{spDisplayName}}</h4>' +
-        '<p><span>Receipt Id: {{consentReceiptID}}</span></p><p>"{{spDescription}}"</span></p>' +
+        '<p><span>接受 Id: {{consentReceiptID}}</span></p><p>"{{spDescription}}"</span></p>' +
         '</div>' +
         '<div class="right">' +
         '<div class="btn-group" role="group" aria-label="actions">' +
-        '<button type="button" class="btn btn-primary btn-default-settings" data-toggle="tooltip" data-placement="top" title="Settings" data-id="{{consentReceiptID}}"><span' +
+        '<button type="button" class="btn btn-primary btn-default-settings" data-toggle="tooltip" data-placement="top" title="设置" data-id="{{consentReceiptID}}"><span' +
         ' class="icon-cog icon-font-size"></span></button>' +
         '</div>' +
         '</div>' +
         '</div>{{/default}}</div>' +
-        '{{#if receipts.length}}<div id="receipts"><h3>Consents</h3>{{#receipts}}<div class="panel panel-default' +
+        '{{#if receipts.length}}<div id="receipts"><h3>同意</h3>{{#receipts}}<div class="panel panel-default' +
         ' panel-consents">' +
         '<div class="panel-body flex-container">' +
         '<div class="left">' +
         '<h4>{{spDisplayName}}</h4>' +
-        '<p><span>Receipt Id: {{consentReceiptID}}</span></p><p>"{{spDescription}}"</span></p>' +
+        '<p><span>接受 Id: {{consentReceiptID}}</span></p><p>"{{spDescription}}"</span></p>' +
         '</div>' +
         '<div class="right">' +
         '<div class="btn-group" role="group" aria-label="actions">' +
-        '<button type="button" class="btn btn-primary btn-settings" data-toggle="tooltip" data-placement="top" title="Settings" data-id="{{consentReceiptID}}"><span class="icon-cog icon-font-size"></span></button>' +
-        '<button type="button" class="btn btn-default btn-revoke">Revoke</button></div>' +
+        '<button type="button" class="btn btn-primary btn-settings" data-toggle="tooltip" data-placement="top" title="设置" data-id="{{consentReceiptID}}"><span class="icon-cog icon-font-size"></span></button>' +
+        '<button type="button" class="btn btn-default btn-revoke">回收</button></div>' +
         '</div>' +
         '</div>' +
         '</div>{{/receipts}}</div>{{/if}}';
@@ -220,32 +220,32 @@ function renderReceiptDetails(data) {
     var content = '{{#receipts}}{{#services}}<div class="panel panel-default panel-consents">' +
         '<div class="panel-heading">' +
         '<button type="button" class="close btn-cancel-settings" data-target="#cancel" data-dismiss="alert">' +
-        '<span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>' +
+        '<span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>' +
         '<h3 class="panel-title">{{#if serviceDisplayName}}{{serviceDisplayName}}{{else}}{{service}}{{/if}}</h3>' +
         '<p>{{serviceDescription}}</p>' +
         '</div>' +
         '<div class="panel-body no-padding">' +
         '<div class="more-info">' +
         '<p>More about this service: <span class="pull-right datepicker">' +
-        '<label>Valid Until</label>' +
+        '<label>有效至</label>' +
         '<input type="text" name="date_picker" id="date_picker" value="{{{extractDate purposes.0.termination}}}"/>' +
         '<input type="hidden" name="date_picker_old_expiry" id="date_picker_old_expiry" value="{{purposes.0.termination}}"/>' +
         '<input type="hidden" name="date_picker_new_expiry" id="date_picker_new_expiry" value="{{purposes.0.termination}}"/>' +
-        '<button type="button" class="ui-datepicker-reset action-reset"><i class="icon-undo" data-toggle="tooltip" data-placement="top" title="Reset Date"></i></button>' +
+        '<button type="button" class="ui-datepicker-reset action-reset"><i class="icon-undo" data-toggle="tooltip" data-placement="top" title="重置数据"></i></button>' +
         '</span>' +
         '</p>' +
         '<ul>' +
-        '<li><strong>Collection Method : </strong>{{../collectionMethod}}</li>' +
-        '<li><strong>Version : </strong>{{../version}}</li>' +
+        '<li><strong>采集方式 : </strong>{{../collectionMethod}}</li>' +
+        '<li><strong>版本 : </strong>{{../version}}</li>' +
         '</ul>' +
         '</div>' +
         '<div class="tree-table-container">' +
-        '<p>Deselect consents that you wish to revoke</p>' +
+        '<p>反选你要回收的同意</p>' +
         '<div id="tree-table"></div>' +
         '</div>' +
         '<div class="panel-footer text-right">' +
-        '<button type="button" class="btn btn-primary btn-update-settings">Update</button>' +
-        '<button type="button" class="btn btn-default btn-cancel btn-cancel-settings">Cancel</button>' +
+        '<button type="button" class="btn btn-primary btn-update-settings">更新</button>' +
+        '<button type="button" class="btn btn-default btn-cancel btn-cancel-settings">取消</button>' +
         '</div>' +
         '</div>{{/services}}{{/receipts}}';
 
@@ -336,8 +336,8 @@ function addActions(container) {
         var receiptID = $(this).prev().data("id");
         $("#message").html(confirmationDialog);
         message({
-            title: "Consent Confirmation",
-            content: 'Are you sure you want to revoke this consent? This operation is not reversible.',
+            title: "同意确认",
+            content: '您确定要撤消此同意吗？此操作不可逆.',
             type: 'confirm',
             okCallback: function () {
                 revokeReceipt(receiptID);
@@ -395,8 +395,8 @@ function addActions(container) {
 function showWarning() {
     $("#message").html(warningDialog);
     message({
-        title: "Consent Selection",
-        content: 'Please select all required consents in order to proceed.',
+        title: "同意选择",
+        content: '请选择所有必需的同意以继续.',
         type: 'warning',
         okCallback: function () {
         }
@@ -406,8 +406,8 @@ function showWarning() {
 function showConfirm(container) {
     $("#message").html(confirmationDialog);
     message({
-        title: "Consent Confirmation",
-        content: 'Are you sure you want to update/revoke this consent? This operation is not reversible.',
+        title: "同意确认",
+        content: '是否确实要更新/撤消此同意？此操作不可逆.',
         type: 'confirm',
         okCallback: function () {
             revokeAndAddNewReceipt(receiptData, container);
