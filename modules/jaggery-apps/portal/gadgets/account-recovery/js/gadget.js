@@ -7,9 +7,9 @@ function drawPage() {
     var body = "    <div class=\"col-lg-12 content-section\">\n" +
         "            <fieldset>\n" +
         "                <input type=\"hidden\" name=\"challangedId_1\" value=\"http://wso2.org/claims/challengeQuestion1\"/>\n" +
-        "                <legend>Challenge Question Set 1</legend>\n" +
+        "                <legend>挑战问题集 1</legend>\n" +
         "                <div class=\"control-group\">\n" +
-        "                    <label class=\"control-label\" for=\"q1\">Challenge Question <span class=\"required\">*</span></label>\n" +
+        "                    <label class=\"control-label\" for=\"q1\">挑战问题 <span class=\"required\">*</span></label>\n" +
         "                    <div class=\"controls\">\n" +
         "                        <select id=\"q1\" name=\"question_1\" class=\"input-xxlarge\">\n";
     for (var i in json.challenge1) {
@@ -25,7 +25,7 @@ function drawPage() {
         "                    </div>\n" +
         "                </div>\n" +
         "                <div class=\"control-group\">\n" +
-        "                    <label class=\"control-label\" for=\"q1answer\">Your Answer <span class=\"required\">*</span></label>\n" +
+        "                    <label class=\"control-label\" for=\"q1answer\">你的答案 <span class=\"required\">*</span></label>\n" +
         "                    <div class=\"controls\">\n";
     if (isQ1Ans) {
         body = body + "                        <input type=\"password\" name=\"ans_1\" class=\"input-xxlarge\" value=\"" + json.challenge1[q1ID].answer + "\" />\n";
@@ -38,9 +38,9 @@ function drawPage() {
 
         "            <fieldset>\n" +
         "                <input type=\"hidden\" name=\"challangedId_2\" value=\"http://wso2.org/claims/challengeQuestion2\"/>\n" +
-        "                <legend>Challenge Question Set 2</legend>\n" +
+        "                <legend>挑战问题集 2</legend>\n" +
         "                <div class=\"control-group\">\n" +
-        "                    <label class=\"control-label\" for=\"q1\">Challenge Question <span class=\"required\">*</span></label>\n" +
+        "                    <label class=\"control-label\" for=\"q1\">挑战问题 <span class=\"required\">*</span></label>\n" +
         "                    <div class=\"controls\">\n" +
         "                        <select id=\"q2\" name=\"question_2\" class=\"input-xxlarge\">\n";
     for (var i in json.challenge2) {
@@ -56,7 +56,7 @@ function drawPage() {
         "                    </div>\n" +
         "                </div>\n" +
         "                <div class=\"control-group\">\n" +
-        "                    <label class=\"control-label\" for=\"q1answer\">Your Answer <span class=\"required\">*</span></label>\n" +
+        "                    <label class=\"control-label\" for=\"q1answer\">你的答案 <span class=\"required\">*</span></label>\n" +
         "                    <div class=\"controls\">\n";
     if (isQ2Ans) {
         body = body + "                        <input type=\"password\" name=\"ans_2\" class=\"input-xxlarge\" value=\"" + json.challenge2[q2ID].answer + "\" />\n";
@@ -70,8 +70,8 @@ function drawPage() {
 
         "            <div class=\"control-group\">\n" +
         "                <div class=\"controls\">\n" +
-        "                    <input type=\"button\" class=\"btn btn-primary\" value=\"Update\" onclick=\"validate();\"/>\n" +
-        "                    <input type=\"button\" class=\"btn btn-default btn-cancel\" value=\"Cancel\" onclick=\"cancel();\"/>\n" +
+        "                    <input type=\"button\" class=\"btn btn-primary\" value=\"更新\" onclick=\"validate();\"/>\n" +
+        "                    <input type=\"button\" class=\"btn btn-default btn-cancel\" value=\"取消\" onclick=\"cancel();\"/>\n" +
         "                </div>\n" +
         "            </div>\n" +
         "    </div>";
@@ -97,7 +97,7 @@ function validate() {
         "    <div class=\"modal-content\">\n" +
         "      <div class=\"modal-header\">\n" +
         "        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n" +
-        "        <h3 class=\"modal-title\">Modal title</h4>\n" +
+        "        <h3 class=\"modal-title\">标题</h4>\n" +
         "      </div>\n" +
         "      <div class=\"modal-body\">\n" +
         "        <p>One fine body&hellip;</p>\n" +
@@ -111,13 +111,13 @@ function validate() {
 
 
     if (validateEmpty("ans_1").length > 0) {
-        var msg = "Challenge Question Set 1 is required";
+        var msg = "挑战问题集 1 必须填写";
         message({content:msg, type:'warning', cbk:function () {
         } });
         return false;
     }
     if (validateEmpty("ans_2").length > 0) {
-        var msg = "Challenge Question Set 2 is required";
+        var msg = "挑战问题集 2 必须填写";
         message({content:msg, type:'warning', cbk:function () {
         } });
         return false;
@@ -137,8 +137,8 @@ function validateEmpty(fldname) {
     }
     value = value.replace(/^\s+/, "");
     if (value.length == 0) {
-        error = fld.name + "(contains only spaces) ";
+        error = fld.name + "(包含空格) ";
         return error;
     }
     return error;
-} 
+}
