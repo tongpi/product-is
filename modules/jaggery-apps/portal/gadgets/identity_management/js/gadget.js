@@ -5,16 +5,16 @@ function drawPage() {
         "        <table class=\"table table-bordered\">\n" +
         "            <thead>\n" +
         "                <tr>\n" +
-        "                    <th>Social Login</th>\n" +
-        "                    <th>Identity Provider</th>\n" +
-        "                    <th>Action</th>\n" +
+        "                    <th>社交登录</th>\n" +
+        "                    <th>身份提供者</th>\n" +
+        "                    <th>操作</th>\n" +
         "                </tr>\n" +
         "            </thead>\n";
 
     var body = "            <tbody>\n";
             body = body + "                <tr>\n" +
                 "                    <td>" + json.return + "</td>\n" +
-                "                    <td> Primary OpenID </td>" +
+                "                    <td> P主 OpenID </td>" +
                 "                    <td> </td>" ;
     if (json != null) {
         if (isArray(json.associatedID)) {
@@ -26,7 +26,7 @@ function drawPage() {
                     "                    <td>\n"+
 "                        <a title=\"\" onclick=\"validate('" + json.associatedID[i]
                         + "');\" href=\"javascript:void(0)\"><i class=\"icon-trash\"></i> \n" +
-                        "                        Remove</a>\n"+
+                        "                        移除</a>\n"+
 "                    </td>\n" +
                     "                </tr>\n";
             }
@@ -38,7 +38,7 @@ function drawPage() {
                 "                    <td>\n"+
 "                        <a title=\"\" onclick=\"validate('" + json.associatedID
                         + "');\" href=\"javascript:void(0)\"><i class=\"icon-trash\"></i> \n" +
-                        "                        Remove</a>\n"+
+                        "                        移除</a>\n"+
 "                    </td>\n" +
                     "                </tr>\n";
         }
@@ -64,7 +64,7 @@ function itemRemove(providerId) {
 
         })
         .fail(function () {
-            message({content:'Error while removing Social login ID ', type:'error', cbk:function () {
+            message({content:'移除社交登录ID出错 ', type:'error', cbk:function () {
             } });
             console.log('error');
 
@@ -93,7 +93,7 @@ function validate(appName) {
         "    <div class=\"modal-content\">\n" +
         "      <div class=\"modal-header\">\n" +
         "        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n" +
-        "        <h3 class=\"modal-title\">Modal title</h4>\n" +
+        "        <h3 class=\"modal-title\">标题</h4>\n" +
         "      </div>\n" +
         "      <div class=\"modal-body\">\n" +
         "        <p>One fine body&hellip;</p>\n" +
@@ -108,10 +108,9 @@ function validate(appName) {
 }
 
 function itemRemoveValidate(appName) {
-    var msg = "You are about to remove  Id " + appName.split(/:(.+)?/)[1] + " From IDP " +appName.split(':')[0] +". Do you want to proceed?";
+    var msg = "你简要移除  Id " + appName.split(/:(.+)?/)[1] + " 从 IDP " +appName.split(':')[0] +". 你确定要继续吗?";
     message({content:msg, type:'confirm', okCallback:function () {
         itemRemove(appName);
     }, cancelCallback:function () {
     }});
-} 
-
+}
