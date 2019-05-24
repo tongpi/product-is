@@ -20,128 +20,128 @@
         <Dialect dialectURI="http://wso2.org/claims">
             <Claim>
                 <ClaimURI>http://wso2.org/claims/userid</ClaimURI>
-                <DisplayName>User ID</DisplayName>
+                <DisplayName>用户 ID</DisplayName>
                 <AttributeID>scimId</AttributeID>
                 <Description>Unique ID of the user</Description>
                 <ReadOnly/>
             </Claim>
             <Claim>
                 <ClaimURI>http://wso2.org/claims/externalid</ClaimURI>
-                <DisplayName>External User ID</DisplayName>
+                <DisplayName>外部用户 ID</DisplayName>
                 <AttributeID>externalId</AttributeID>
                 <Description>Unique ID of the user used in external systems</Description>
                 <ReadOnly/>
             </Claim>
             <Claim>
                 <ClaimURI>http://wso2.org/claims/created</ClaimURI>
-                <DisplayName>Created Time</DisplayName>
+                <DisplayName>创建时间</DisplayName>
                 <AttributeID>createdDate</AttributeID>
                 <Description>Created timestamp of the user</Description>
                 <ReadOnly/>
             </Claim>
             <Claim>
                 <ClaimURI>http://wso2.org/claims/modified</ClaimURI>
-                <DisplayName>Last Modified Time</DisplayName>
+                <DisplayName>上次修改时间</DisplayName>
                 <AttributeID>lastModifiedDate</AttributeID>
                 <Description>Last Modified timestamp of the user</Description>
                 <ReadOnly/>
             </Claim>
             <Claim>
                 <ClaimURI>http://wso2.org/claims/location</ClaimURI>
-                <DisplayName>Location</DisplayName>
+                <DisplayName>位置</DisplayName>
                 <AttributeID>location</AttributeID>
                 <Description>Location</Description>
             </Claim>
 
             <Claim>
                 <ClaimURI>http://wso2.org/claims/formattedName</ClaimURI>
-                <DisplayName>Name - Formatted Name</DisplayName>
+                <DisplayName>格式化的名称</DisplayName>
                 <AttributeID>formattedName</AttributeID>
                 <Description>Formatted Name</Description>
             </Claim>
             <Claim>
                 <ClaimURI>http://wso2.org/claims/middleName</ClaimURI>
-                <DisplayName>Middle Name</DisplayName>
+                <DisplayName>中间名</DisplayName>
                 <AttributeID>middleName</AttributeID>
                 <Description>Middle Name</Description>
             </Claim>
             <Claim>
                 <ClaimURI>http://wso2.org/claims/honorificPrefix</ClaimURI>
-                <DisplayName>Name - Honoric Prefix</DisplayName>
+                <DisplayName>名字 - 尊称前缀</DisplayName>
                 <AttributeID>honoricPrefix</AttributeID>
                 <Description>Honoric Prefix</Description>
             </Claim>
             <Claim>
                 <ClaimURI>http://wso2.org/claims/honorificSuffix</ClaimURI>
-                <DisplayName>Name - Honoric Suffix</DisplayName>
+                <DisplayName>名字 - 尊称后缀</DisplayName>
                 <AttributeID>honoricSuffix</AttributeID>
                 <Description>Honoric Suffix</Description>
             </Claim>
             <Claim>
                 <ClaimURI>http://wso2.org/claims/userType</ClaimURI>
-                <DisplayName>User Type</DisplayName>
+                <DisplayName>用户类别</DisplayName>
                 <AttributeID>userType</AttributeID>
                 <Description>User Type</Description>
             </Claim>
             <Claim>
                 <ClaimURI>http://wso2.org/claims/preferredLanguage</ClaimURI>
-                <DisplayName>Preferred Language</DisplayName>
+                <DisplayName>首选语言</DisplayName>
                 <AttributeID>preferredLanguage</AttributeID>
                 <Description>Preferred Language</Description>
             </Claim>
             <Claim>
                 <ClaimURI>http://wso2.org/claims/local</ClaimURI>
-                <DisplayName>Local</DisplayName>
+                <DisplayName>本地</DisplayName>
                 <AttributeID>local</AttributeID>
                 <Description>Local</Description>
             </Claim>
             <Claim>
                 <ClaimURI>http://wso2.org/claims/timeZone</ClaimURI>
-                <DisplayName>Time Zone</DisplayName>
+                <DisplayName>时区</DisplayName>
                 <AttributeID>timeZone</AttributeID>
                 <Description>Time Zone</Description>
             </Claim>
 
             <Claim>
                 <ClaimURI>http://wso2.org/claims/emails.work</ClaimURI>
-                <DisplayName>Emails - Work Email</DisplayName>
+                <DisplayName>Emails - 工作邮箱</DisplayName>
                 <AttributeID>workEmail</AttributeID>
                 <Description>Work Email</Description>
             </Claim>
             <Claim>
                 <ClaimURI>http://wso2.org/claims/emails.home</ClaimURI>
-                <DisplayName>Emails - Home Email</DisplayName>
+                <DisplayName>Emails - 私人邮箱</DisplayName>
                 <AttributeID>homeEmail</AttributeID>
                 <Description>Home Email</Description>
             </Claim>
             <Claim>
                 <ClaimURI>http://wso2.org/claims/emails.other</ClaimURI>
-                <DisplayName>Emails - Other Email</DisplayName>
+                <DisplayName>Emails - 其它邮箱</DisplayName>
                 <AttributeID>otherEmail</AttributeID>
                 <Description>Other Email</Description>
             </Claim>
             <Claim>
                 <ClaimURI>http://wso2.org/claims/phoneNumbers</ClaimURI>
-                <DisplayName>Phone Numbers</DisplayName>
+                <DisplayName>电话号码</DisplayName>
                 <AttributeID>phoneNumbers</AttributeID>
                 <Description>Phone Numbers</Description>
                 <RegEx>^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$</RegEx>
             </Claim>
             <Claim>
                 <ClaimURI>http://wso2.org/claims/phoneNumbers.home</ClaimURI>
-                <DisplayName>Phone Numbers - Home Phone Number</DisplayName>
+                <DisplayName>电话号码 - 私人电话号码</DisplayName>
                 <AttributeID>homePhone</AttributeID>
                 <Description>Home Phone</Description>
             </Claim>
             <Claim>
                 <ClaimURI>http://wso2.org/claims/phoneNumbers.work</ClaimURI>
-                <DisplayName>Phone Numbers - Work Phone Number</DisplayName>
+                <DisplayName>电话号码 - 工作电话</DisplayName>
                 <AttributeID>workPhone</AttributeID>
                 <Description>Work Phone</Description>
             </Claim>
             <Claim>
                 <ClaimURI>http://wso2.org/claims/phoneNumbers.fax</ClaimURI>
-                <DisplayName>Phone Numbers - Fax Number</DisplayName>
+                <DisplayName>电话号码 - 传真号码</DisplayName>
                 <AttributeID>fax</AttributeID>
                 <Description>Fax Number</Description>
             </Claim>
@@ -153,7 +153,7 @@
             </Claim>
             <Claim>
                 <ClaimURI>http://wso2.org/claims/phoneNumbers.other</ClaimURI>
-                <DisplayName>Phone Numbers - Other</DisplayName>
+                <DisplayName>电话号码 - 其它</DisplayName>
                 <AttributeID>otherPhoneNumber</AttributeID>
                 <Description>Other Phone Number</Description>
             </Claim>
@@ -171,31 +171,31 @@
             </Claim>
             <Claim>
                 <ClaimURI>http://wso2.org/claims/photos</ClaimURI>
-                <DisplayName>Photo</DisplayName>
+                <DisplayName>照片</DisplayName>
                 <AttributeID>photos</AttributeID>
                 <Description>Photo</Description>
             </Claim>
             <Claim>
                 <ClaimURI>http://wso2.org/claims/photourl</ClaimURI>
-                <DisplayName>Photo URIL</DisplayName>
+                <DisplayName>照片 URIL</DisplayName>
                 <AttributeID>photoUrl</AttributeID>
                 <Description>Photo URL</Description>
             </Claim>
             <Claim>
                 <ClaimURI>http://wso2.org/claims/thumbnail</ClaimURI>
-                <DisplayName>Photo - Thumbnail</DisplayName>
+                <DisplayName>照片 - 缩略图</DisplayName>
                 <AttributeID>thumbnail</AttributeID>
                 <Description>Photo - Thumbnail</Description>
             </Claim>
             <Claim>
                 <ClaimURI>http://wso2.org/claims/addresses</ClaimURI>
-                <DisplayName>Address</DisplayName>
+                <DisplayName>地址</DisplayName>
                 <AttributeID>addresses</AttributeID>
                 <Description>Address</Description>
             </Claim>
             <Claim>
                 <ClaimURI>http://wso2.org/claims/addresses.formatted</ClaimURI>
-                <DisplayName>Address - Formatted</DisplayName>
+                <DisplayName>地址 - 格式化地址</DisplayName>
                 <AttributeID>formattedAddress</AttributeID>
                 <Description>Address - Formatted</Description>
             </Claim>
@@ -207,13 +207,13 @@
             </Claim>
             <Claim>
                 <ClaimURI>http://wso2.org/claims/groups</ClaimURI>
-                <DisplayName>Groups</DisplayName>
+                <DisplayName>群组</DisplayName>
                 <AttributeID>groups</AttributeID>
                 <Description>Groups</Description>
             </Claim>
             <Claim>
                 <ClaimURI>http://wso2.org/claims/identity/verifyEmail</ClaimURI>
-                <DisplayName>Verify Email</DisplayName>
+                <DisplayName>验证 Email</DisplayName>
                 <AttributeID>manager</AttributeID>
                 <Description>Temporary claim to invoke email verified feature</Description>
             </Claim>
@@ -225,19 +225,19 @@
             </Claim>
             <Claim>
                 <ClaimURI>http://wso2.org/claims/identity/adminForcedPasswordReset</ClaimURI>
-                <DisplayName>Force Password Reset</DisplayName>
+                <DisplayName>强制密码重置</DisplayName>
                 <AttributeID>departmentNumber</AttributeID>
                 <Description>Temporary claim to invoke email force password feature</Description>
             </Claim>
             <Claim>
                 <ClaimURI>http://wso2.org/claims/entitlements</ClaimURI>
-                <DisplayName>Entitlements</DisplayName>
+                <DisplayName>权限</DisplayName>
                 <AttributeID>entitlements</AttributeID>
                 <Description>Entitlements</Description>
             </Claim>
             <Claim>
                 <ClaimURI>http://wso2.org/claims/x509Certificates</ClaimURI>
-                <DisplayName>X509Certificates</DisplayName>
+                <DisplayName>X509证书</DisplayName>
                 <AttributeID>x509Certificates</AttributeID>
                 <Description>X509Certificates</Description>
             </Claim>
@@ -263,7 +263,7 @@
             </Claim>
             <Claim>
                 <ClaimURI>http://wso2.org/claims/identity/lastLogonTime</ClaimURI>
-                <DisplayName>Last Logon</DisplayName>
+                <DisplayName>上次登录时间</DisplayName>
                 <!-- Proper attribute Id in your user store must be configured for this -->
                 <AttributeID>carLicense</AttributeID>
                 <Description>Last Logon Time</Description>

@@ -22,27 +22,27 @@
         <Dialect dialectURI="http://wso2.org/claims">
             <Claim>
                 <ClaimURI>http://wso2.org/claims/userprincipal</ClaimURI>
-                <DisplayName>User Principal</DisplayName>
+                <DisplayName>用户主体</DisplayName>
                 <AttributeID>uid</AttributeID>
                 <Description>User Principal</Description>
             </Claim>
             <Claim>
                 <ClaimURI>http://wso2.org/claims/extendedRef</ClaimURI>
-                <DisplayName>Extended Ref</DisplayName>
+                <DisplayName>扩展引用</DisplayName>
                 <!-- Proper attribute Id in your user store must be configured for this -->
                 <AttributeID>extendedRef</AttributeID>
                 <Description>Extended Ref</Description>
             </Claim>
             <Claim>
                 <ClaimURI>http://wso2.org/claims/extendedDisplayName</ClaimURI>
-                <DisplayName>Extended Display Name</DisplayName>
+                <DisplayName>扩展显示名</DisplayName>
                 <!-- Proper attribute Id in your user store must be configured for this -->
                 <AttributeID>extendedDisplayName</AttributeID>
                 <Description>Extended Display Name</Description>
             </Claim>
             <Claim>
                 <ClaimURI>http://wso2.org/claims/costCenter</ClaimURI>
-                <DisplayName>Cost Center</DisplayName>
+                <DisplayName>成本控制中心</DisplayName>
                 <!-- Proper attribute Id in your user store must be configured for this -->
                 <AttributeID>costCenter</AttributeID>
                 <Description>Cost Center</Description>

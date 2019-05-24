@@ -20,7 +20,7 @@
 		<Dialect dialectURI="http://wso2.org/claims">
 			<Claim>
 				<ClaimURI>http://wso2.org/claims/department</ClaimURI>
-				<DisplayName>Department</DisplayName>
+				<DisplayName>工作部门</DisplayName>
 				<AttributeID>departmentNumber</AttributeID>
 				<Description>Department</Description>
 				<SupportedByDefault />
@@ -28,7 +28,7 @@
 			</Claim>
 			<Claim>
 				<ClaimURI>http://wso2.org/claims/resourceType</ClaimURI>
-				<DisplayName>Resource Type</DisplayName>
+				<DisplayName>资源类型</DisplayName>
 				<AttributeID>ref</AttributeID>
 				<Description>Resource Type</Description>
 			</Claim>
@@ -41,7 +41,7 @@
 			</Claim>
 			<Claim>
 				<ClaimURI>http://wso2.org/claims/userid</ClaimURI>
-				<DisplayName>User ID</DisplayName>
+				<DisplayName>用户 ID</DisplayName>
 				<AttributeID>scimId</AttributeID>
 				<Description>Unique ID of the user</Description>
 				<ReadOnly/>
@@ -151,7 +151,7 @@
 			</Claim>
 			<Claim>
 				<ClaimURI>http://wso2.org/claims/title</ClaimURI>
-				<DisplayName>Title</DisplayName>
+				<DisplayName>职称</DisplayName>
 				<AttributeID>title</AttributeID>
 				<Description>Title</Description>
 			</Claim>
@@ -261,7 +261,7 @@
 			</Claim>
 			<Claim>
 				<ClaimURI>http://wso2.org/claims/region</ClaimURI>
-				<DisplayName>Region</DisplayName>
+				<DisplayName>地区</DisplayName>
 				<AttributeID>region</AttributeID>
 				<Description>Region</Description>
 			</Claim>
@@ -273,13 +273,13 @@
 			</Claim>
 			<Claim>
 				<ClaimURI>http://wso2.org/claims/entitlements</ClaimURI>
-				<DisplayName>Entitlements</DisplayName>
+				<DisplayName>权限</DisplayName>
 				<AttributeID>entitlements</AttributeID>
 				<Description>Entitlements</Description>
 			</Claim>
 			<Claim>
 				<ClaimURI>http://wso2.org/claims/role</ClaimURI>
-				<DisplayName>Role</DisplayName>
+				<DisplayName>角色</DisplayName>
 				<AttributeID>role</AttributeID>
 				<Description>Role</Description>
 				<SupportedByDefault />
@@ -293,7 +293,7 @@
 			</Claim>
 			<Claim>
 				<ClaimURI>http://wso2.org/claims/organization</ClaimURI>
-				<DisplayName>Organization</DisplayName>
+				<DisplayName>组织</DisplayName>
 				<AttributeID>organizationName</AttributeID>
 				<Description>Organization</Description>
 				<DisplayOrder>3</DisplayOrder>
@@ -301,13 +301,13 @@
 			</Claim>
 			<Claim>
 				<ClaimURI>http://wso2.org/claims/stateorprovince</ClaimURI>
-				<DisplayName>State</DisplayName>
+				<DisplayName>省份</DisplayName>
 				<AttributeID>stateOrProvinceName</AttributeID>
 				<Description>State</Description>
 			</Claim>
 			<Claim>
 				<ClaimURI>http://wso2.org/claims/gender</ClaimURI>
-				<DisplayName>Gender</DisplayName>
+				<DisplayName>性别</DisplayName>
 				<AttributeID>gender</AttributeID>
 				<Description>Gender</Description>
 			</Claim>
