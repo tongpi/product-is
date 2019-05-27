@@ -63,8 +63,7 @@ if(request.getParameter("login") === 'true'){
 
 <div>
 
-<p>You are now being redirected to Identity Server. If the
-redirection fails, please click on the button below.</p>
+<p>正在自动重定向到身份服务器. 如果重定向失败，请单击下面的按钮.</p>
 <form method="POST" action="<%=postUrl%>">
 <p>
    <input type="hidden" name="SAMLRequest" value="<%= encodedSAMLRequest %>"/>
@@ -72,7 +71,7 @@ redirection fails, please click on the button below.</p>
     <% if (authzFailure === 'true') { %>
    <input type="hidden" name="authz_failure" value="<%=authzFailure%>"/>
     <%}%>
-   <button type="submit">Redirect manually</button>
+   <button type="submit">手动重定向</button>
 </p>
 </form>
 </div>
