@@ -8,7 +8,7 @@ function validateEmpty(fldname) {
     }
     value = value.replace(/^\s+/, "");
     if (value.length == 0) {
-        error = fld.name + "(contains only spaces) ";
+        error = fld.name + "(不能为空) ";
         return error;
     }
     return error;
@@ -28,7 +28,7 @@ function createMessageBody() {
                   "    <div class=\"modal-content\">\n" +
                   "      <div class=\"modal-header\">\n" +
                   "        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n" +
-                  "        <h3 class=\"modal-title\">Modal title</h4>\n" +
+                  "        <h3 class=\"modal-title\">提示</h4>\n" +
                   "      </div>\n" +
                   "      <div class=\"modal-body\">\n" +
                   "        <p>One fine body&hellip;</p>\n" +
@@ -47,7 +47,7 @@ var messageDisplay = function (params) {
     createMessageBody();
     $('#messageModal').html($('#confirmation-data').html());
     if (params.title == undefined) {
-        $('#messageModal h3.modal-title').html('Dashboard');
+        $('#messageModal h3.modal-title').html('仪表板');
     } else {
         $('#messageModal h3.modal-title').html(params.title);
     }
@@ -59,7 +59,7 @@ var messageDisplay = function (params) {
             $('#messageModal div.modal-footer').append($('<a class="btn ' + params.buttons[i].cssClass + '">' + params.buttons[i].name + '</a>').click(params.buttons[i].cbk));
         }
     } else {
-        $('#messageModal a.btn-primary').html('OK').click(function () {
+        $('#messageModal a.btn-primary').html('确定').click(function () {
             $('#messageModal').modal('hide');
         });
     }
@@ -99,17 +99,17 @@ var message = function (params) {
     params.content = '<table class="msg-table"><tr><td class="imageCell ' + params.type + '"><i class="' + icon + '"></i></td><td class="messageText-wrapper"><span class="messageText">' + params.content + '</span></td></tr></table>';
     if (params.type == "confirm") {
         if (params.title == undefined) {
-            params.title = "Dashboard"
+            params.title = "仪表板"
         }
         messageDisplay({content: params.content, title: params.title, buttons: [
-            {name: "Yes", cssClass: "btn btn-primary", cbk: function () {
+            {name: "是", cssClass: "btn btn-primary", cbk: function () {
                 $('#messageModal').modal('hide');
                 if (typeof params.okCallback == "function") {
                     params.okCallback()
                 }
                 ;
             }},
-            {name: "No", cssClass: "btn", cbk: function () {
+            {name: "否", cssClass: "btn", cbk: function () {
                 $('#messageModal').modal('hide');
                 if (typeof params.cancelCallback == "function") {
                     params.cancelCallback()
@@ -123,17 +123,17 @@ var message = function (params) {
 
     if (params.title == undefined || params.title == null) {
         if (params.type == "info") {
-            params.title = "Dashboard Notification"
+            params.title = "仪表板通知"
         }
         if (params.type == "warning") {
-            params.title = "Dashboard Warning"
+            params.title = "仪表板警告"
         }
         if (params.type == "error") {
-            params.title = "Dashboard Error"
+            params.title = "仪表板错误"
         }
     }
     messageDisplay({content: params.content, title: params.title, buttons: [
-        {name: "OK", cssClass: "btn btn-primary", cbk: function () {
+        {name: "确定", cssClass: "btn btn-primary", cbk: function () {
             $('#messageModal').modal('hide');
             if (params.cbk && typeof params.cbk == "function") {
                 params.cbk();
@@ -142,5 +142,3 @@ var message = function (params) {
     ]
                    });
 };
-
-

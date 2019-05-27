@@ -8,7 +8,7 @@ function validateEmpty(fldname) {
     }
     value = value.replace(/^\s+/, "");
     if (value.length == 0) {
-        error = fld.name + "(contains only spaces) ";
+        error = fld.name + "(不能为空) ";
         return error;
     }
     return error;
@@ -26,7 +26,7 @@ function cancelProcessToLogin(parameters){
     var messageDisplay = function (params) {
            $('#messageModal').html($('#confirmation-data').html());
            if(params.title == undefined){
-               $('#messageModal h3.modal-title').html('Dashboard');
+               $('#messageModal h3.modal-title').html('仪表板');
            }else{
                $('#messageModal h3.modal-title').html(params.title);
            }
@@ -38,7 +38,7 @@ function cancelProcessToLogin(parameters){
                    $('#messageModal div.modal-footer').append($('<a class="btn '+params.buttons[i].cssClass+'">'+params.buttons[i].name+'</a>').click(params.buttons[i].cbk));
                }
            }else{
-               $('#messageModal a.btn-primary').html('OK').click(function() {
+               $('#messageModal a.btn-primary').html('确定').click(function() {
                    $('#messageModal').modal('hide');
                });
            }
@@ -77,13 +77,13 @@ function cancelProcessToLogin(parameters){
            }
            params.content = '<table class="msg-table"><tr><td class="imageCell '+params.type+'"><i class="'+icon+'"></i></td><td class="messageText-wrapper"><span class="messageText">'+params.content+'</span></td></tr></table>';
            if(params.type == "confirm"){
-              if( params.title == undefined ){ params.title = "Dashboard"}
+              if( params.title == undefined ){ params.title = "仪表板"}
               messageDisplay({content:params.content,title:params.title ,buttons:[
-                  {name:"Yes",cssClass:"btn btn-primary",cbk:function() {
+                  {name:"是",cssClass:"btn btn-primary",cbk:function() {
                       $('#messageModal').modal('hide');
                       if(typeof params.okCallback == "function") {params.okCallback()};
                   }},
-                  {name:"No",cssClass:"btn",cbk:function() {
+                  {name:"否",cssClass:"btn",cbk:function() {
                       $('#messageModal').modal('hide');
                       if(typeof params.cancelCallback  == "function") {params.cancelCallback()};
                   }}
@@ -93,17 +93,17 @@ function cancelProcessToLogin(parameters){
            }
 
            var type = "";
-           var title = "Dashboard ";
+           var title = "仪表板 ";
            if(params.title == undefined){
-               if(params.type == "info"){ type = "Notification"}
-               if(params.type == "warning"){ type = "Warning"}
-               if(params.type == "error"){ type = "Error"}
+               if(params.type == "info"){ type = "通知"}
+               if(params.type == "warning"){ type = "警告"}
+               if(params.type == "error"){ type = "错误"}
                title = title + type;
            } else {
                title = params.title;
            }
            messageDisplay({content: params.content, title: title, buttons: [
-               {name:"OK",cssClass:"btn btn-primary",cbk:function() {
+               {name:"确定",cssClass:"btn btn-primary",cbk:function() {
                    $('#messageModal').modal('hide');
                    if(params.cbk && typeof params.cbk == "function")
    	                    params.cbk();
@@ -111,5 +111,3 @@ function cancelProcessToLogin(parameters){
            ]
            });
        };
-
-

@@ -60,7 +60,7 @@ function drawPage() {
                                             "<h4 class=\"panel-title\">"+
                                                 "<a data-toggle=\"collapse\" onclick=\"initiateTOTP()\" style=\"display:inline-block; float:left; text-decoration: none;\">"+
                                                 "<div id=\"scanQR\" style=\"overflow:inherit; float:left; padding-right:2px;\"><span class=\"glyphicon glyphicon-collapse-down\"></span></div>"+
-                                                "Scan QR Code</a>"+
+                                                "扫描二维码</a>"+
                                             "</h4>"+
                                         "</div>"+
                                         "<div id=\"qrcanvdiv\" class=\"panel-collapse collapse\" style=\"display:none\">"+
@@ -83,7 +83,7 @@ function drawPage() {
                                             "<h4 class=\"panel-title\">"+
                                                 "<a data-toggle=\"collapse\" onclick=\"initiateTOTP()\" style=\"display:inline-block; float:left; text-decoration: none;\">"+
                                                 "<div id=\"scanQR\" style=\"overflow:inherit; float:left; padding-right:2px;\"><span class=\"glyphicon glyphicon-collapse-down\"></span></div>"+
-                                                "Scan QR Code</a>"+
+                                                "扫描二维码 </a>"+
                                             "</h4>"+
                                         "</div>"+
                                         "<div id=\"qrcanvdiv\" class=\"panel-collapse collapse\" style=\"display:none\">"+

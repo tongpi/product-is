@@ -14,7 +14,7 @@ function drawPage() {
     var body = "            <tbody>\n";
             body = body + "                <tr>\n" +
                 "                    <td>" + json.return + "</td>\n" +
-                "                    <td> P主 OpenID </td>" +
+                "                    <td> 主 OpenID </td>" +
                 "                    <td> </td>" ;
     if (json != null) {
         if (isArray(json.associatedID)) {

@@ -25,7 +25,7 @@ else{
         "    <div class=\"modal-content\">\n" +
         "      <div class=\"modal-header\">\n" +
         "        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n" +
-        "        <h3 class=\"modal-title\">Modal title</h4>\n" +
+        "        <h3 class=\"modal-title\">提示</h4>\n" +
         "      </div>\n" +
         "      <div class=\"modal-body\">\n" +
         "        <p>One fine body&hellip;</p>\n" +
@@ -65,10 +65,10 @@ function drawPage2(json) {
                "                <form method=\"post\" class=\"form-horizontal\" id=\"associateForm\" name=\"selfReg\" action=\"" + PROXY_CONTEXT_PATH + "/portal/gadgets/identity_management/controllers/identity-management/associateID.jag?\" >\n" +
                "";
        var body = "" ;
-                             
+
        body = body + "                  <div><div class=\"control-group\">\n" +
                "                        <div class=\"controls\">\n" +
-               "                        <label class=\"control-label inputlabel\" for=\"domain\">IDP ID<span class=\"required\">*</span></label>\n" +
+               "                        <label class=\"control-label inputlabel\" for=\"domain\">身份提供者ID<span class=\"required\">*</span></label>\n" +
                "                            <select class=\"col-lg-3 inputContent\" name=\"idpID\">\n" ;
 if(isArray(json.idpNames)){
                                     for (var i in json.idpNames) {
@@ -83,7 +83,7 @@ else	{
                "                    </div>\n" +
                "                    <div class=\"control-group\">\n" +
                "                        <div class=\"controls\">\n" +
-               "                            <label class=\"control-label inputlabel\" for=\"User Name\">User Name<span class=\"required\">*</span></label>\n" +
+               "                            <label class=\"control-label inputlabel\" for=\"User Name\">用户名<span class=\"required\">*</span></label>\n" +
                "                            <input class=\"col-lg-3 inputContent\" type=\"text\" value=\"\" id=\"user_name\" name=\"associateID\"  />\n" +
                "                        </div></div>\n" ;
 
@@ -91,8 +91,8 @@ else	{
 
 	   end = end +  "                    <div class=\"control-group\" style=\"margin-left: 110px;\">\n" +
                "                        <div class=\"controls\">\n" +
-               "                            <input type=\"button\" onclick=\"validate2();\" class=\"btn btn-primary\"  style=\"margin-right: 5px;\" value=\"Register\"/>\n" +
-               "                            <input type=\"button\" onclick=\"cancelProcessToLogin();\" class=\"btn\" value=\"Cancel\"/>\n" +
+               "                            <input type=\"button\" onclick=\"validate2();\" class=\"btn btn-primary\"  style=\"margin-right: 5px;\" value=\"注册\"/>\n" +
+               "                            <input type=\"button\" onclick=\"cancelProcessToLogin();\" class=\"btn\" value=\"取消\"/>\n" +
                "                        </div>\n" +
                "                    </div></div>\n" +
                "                </form>\n" +
@@ -102,7 +102,7 @@ else	{
                 output = head + body + end;
 		$("#light").empty();
                 $("#light").append(output);
-                	
+
             }
 
 function cancelProcessToLogin(){
@@ -118,7 +118,7 @@ function validate2() {
         "    <div class=\"modal-content\">\n" +
         "      <div class=\"modal-header\">\n" +
         "        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n" +
-        "        <h3 class=\"modal-title\">Modal title</h4>\n" +
+        "        <h3 class=\"modal-title\">提示</h4>\n" +
         "      </div>\n" +
         "      <div class=\"modal-body\">\n" +
         "        <p>One fine body&hellip;</p>\n" +
@@ -139,7 +139,7 @@ function validate2() {
 
 
 associateID();
- 
+
 
 }
 
@@ -163,4 +163,3 @@ function associateID() {
                             console.log('completed');
                         });
 }
-
