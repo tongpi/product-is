@@ -55,7 +55,7 @@ function validate() {
         "    <div class=\"modal-content\">\n" +
         "      <div class=\"modal-header\">\n" +
         "        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\">&times;</button>\n" +
-        "        <h3 class=\"modal-title\">标题</h4>\n" +
+        "        <h4 class=\"modal-title\">标题</h4>\n" +
         "      </div>\n" +
         "      <div class=\"modal-body\">\n" +
         "        <p>One fine body&hellip;</p>\n" +
@@ -75,7 +75,7 @@ function validatePWD() {
     var valid = true;
     $("form[id='gadgetForm'] input[type='password']").each(function () {
         if ($(this).val().length <= 0) {
-            message({content:$(this).attr("name") + ' is required', type:'error', cbk:function () {
+            message({content:$(this).attr("name") + ' 是必填项', type:'error', cbk:function () {
             } });
             valid = false;
             return false;
@@ -84,16 +84,11 @@ function validatePWD() {
     var pwd = $("input[id='newPwd']").val();
     var retype = $("input[id='confirmNewPwd']").val();
     if (pwd != retype) {
-        message({content:'Passwords do not match', type:'error', cbk:function () {
+        message({content:'密码不一致', type:'error', cbk:function () {
         } });
         valid = false;
     }
     if (valid) {
         submitUpdate();
     }
-} 
-
-
-
-
-
+}
