@@ -175,7 +175,7 @@ function renderReceiptList(data) {
         '<div class="panel-body flex-container">' +
         '<div class="left">' +
         '<h4>{{spDisplayName}}</h4>' +
-        '<p><span>接受 Id: {{consentReceiptID}}</span></p><p>"{{spDescription}}"</span></p>' +
+        '<p><span>接收 Id: {{consentReceiptID}}</span></p><p>"{{spDescription}}"</span></p>' +
         '</div>' +
         '<div class="right">' +
         '<div class="btn-group" role="group" aria-label="actions">' +
@@ -189,7 +189,7 @@ function renderReceiptList(data) {
         '<div class="panel-body flex-container">' +
         '<div class="left">' +
         '<h4>{{spDisplayName}}</h4>' +
-        '<p><span>接受 Id: {{consentReceiptID}}</span></p><p>"{{spDescription}}"</span></p>' +
+        '<p><span>接收 Id: {{consentReceiptID}}</span></p><p>"{{spDescription}}"</span></p>' +
         '</div>' +
         '<div class="right">' +
         '<div class="btn-group" role="group" aria-label="actions">' +
@@ -226,7 +226,7 @@ function renderReceiptDetails(data) {
         '</div>' +
         '<div class="panel-body no-padding">' +
         '<div class="more-info">' +
-        '<p>More about this service: <span class="pull-right datepicker">' +
+        '<p>该服务的更多信息: <span class="pull-right datepicker">' +
         '<label>有效至</label>' +
         '<input type="text" name="date_picker" id="date_picker" value="{{{extractDate purposes.0.termination}}}"/>' +
         '<input type="hidden" name="date_picker_old_expiry" id="date_picker_old_expiry" value="{{purposes.0.termination}}"/>' +
@@ -370,7 +370,7 @@ function addActions(container) {
     $("#date_picker").datepicker({
         showOn: "button",
         buttonImageOnly: false,
-        buttonText: '<i class="icon-calendar action-calendar" data-toggle="tooltip" data-placement="top" title="Pick a Date"></i>',
+        buttonText: '<i class="icon-calendar action-calendar" data-toggle="tooltip" data-placement="top" title="选择日期"></i>',
         minDate: today,
         changeMonth: true,
         changeYear: true,
@@ -577,7 +577,7 @@ function constructDate(expiry) {
  * change return value to set datepicker default
  */
 function getDefaultExpiry() {
-    return "Forever";
+    return "永远";
 }
 
 function compareArrays(arr1, arr2) {

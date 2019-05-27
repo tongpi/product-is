@@ -24,7 +24,7 @@ var CONSENT_API_URI = "/api/identity/consent-mgt/v1.0/consents";
 var RECEIPTS_URL = "/receipts/";
 var PURPOSES_URI = "/purposes";
 var DEFAULT_CONSENT = "DEFAULT";
-var COLLECTION_METHOD_USER_PORTAL = "Web Form - User Portal";
+var COLLECTION_METHOD_USER_PORTAL = "Web 表单 - 用户门户";
 var HTTP_CODES = {
     success : 200,
     notFound : 404,

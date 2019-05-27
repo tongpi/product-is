@@ -19,11 +19,11 @@ function readFile(path){
 	var file = new File(path);
 	file.open("r");
 	var json = "";
-	
+
 	json = file.readAll();
 	file.close();
 	json = parse(json);
-	
+
 	return json;
 }
 
@@ -71,7 +71,7 @@ function getSuccessErrorJson(request, i18n){
             errorJson.eMsg = i18n.localize("common_error");
         }
     }
-    
+
     if(success != null && success === "1"){
         if(successMsg != null && successMsg.length > 0){
             var temp = i18n.localize(successMsg);
@@ -80,9 +80,9 @@ function getSuccessErrorJson(request, i18n){
             errorJson.successMsg = i18n.localize("common_success");
         }
     }
-    
+
     return errorJson;
-	
+
 }
 
 function doAuthenticate(obj){
@@ -134,18 +134,18 @@ function generateHeader(loggedin, i18n){
 	var pages = uiComponents.pages;
 	var context = uiComponents.context;
 	var accessiblePages = {};
-		
+
 	var logReqLinks = [];
 	var logReqDash = [];
 	var logNotReqLinks = [];
 	var logNotReqDash = [];
-			
+
 	if(loggedin){
 		for each(var obj in pages){
  	        try{
  	        	var pageLoginReq = obj['login-required'] === 'true';
  	        	if(pageLoginReq){
- 	        		
+
 		        	doAuthenticate(obj);
 		        	if(obj.displayorder != '-1' && obj['login-required']){
 			        	var ob = createLinkObject(obj, context, i18n);
@@ -158,7 +158,7 @@ function generateHeader(loggedin, i18n){
 	        }
 	    }
 	}else{
-		
+
 		// only the pages that does not need a user login are displayed here
 	    for each(var obj in pages){
 	        if(obj['login-required'] && obj['login-required'] === 'false'){
@@ -170,13 +170,13 @@ function generateHeader(loggedin, i18n){
 	        }
 	    }
 	}
-	
+
 	var logReqLinkStr = "";
 	for each(var obj in logReqLinks){
 		logReqLinkStr += obj;
 	}
 	logReqLinks = logReqLinkStr;
-	
+
 	var logReqDashStr = "<div class='row'>";
 	var count = 0;
 	for each(var obj in logReqDash){
@@ -190,27 +190,27 @@ function generateHeader(loggedin, i18n){
 	if(count < 3){
 		logReqDashStr  += "</div>";
 	}
-	
+
 	logReqDash = logReqDashStr;
-	
+
 	var logNotReqLinksStr = "";
 	for each(var obj in logNotReqLinks){
 		logNotReqLinksStr += obj;
 	}
 	logNotReqLinks = logNotReqLinksStr;
-	
-	
+
+
 	var logNotReqDashStr = "";
 	for each(var obj in logNotReqDash){
 		logNotReqDashStr += obj;
 	}
 	logNotReqDash = logNotReqDashStr;
-	
+
 	accessiblePages['logReqLinks'] = logReqLinks;
 	accessiblePages['logReqDash'] = logReqDash;
 	accessiblePages['logNotReqLinks'] = logNotReqLinks;
 	accessiblePages['logNotReqDash'] = logNotReqDash;
-		
+
 	return accessiblePages;
 }
 
@@ -218,7 +218,7 @@ function generateHeader(loggedin, i18n){
  * accessiblePages - object containing page arrays
  */
 function generateHeaderLink(page, context, i18n){
-	
+
 	var link = "<li class='"+ page.name +"' ><a title='"+ i18n.localize('pages')[page.text] +"' href='" + context + "/" + page.url +"'><i class='"+ page.styles +"'></i> <span><br>"+ i18n.localize('pages')[page.text] +"</span></a></li>";
 	return link;
 
@@ -226,16 +226,16 @@ function generateHeaderLink(page, context, i18n){
 
 function generateDashboard(page, context, i18n){
 	if(page['dashboard-styles']){
-		
+
 		var dashboard =     "<div class='col-md-4'>" +
 							    "<div class='box-title'><h3>"+ i18n.localize('pages')[page.text] +"</h3></div>" +
 							    "<div class='box-content'>" +
 							        "<div class='" + page['dashboard-styles'] + "'></div>" +
 							        i18n.localize('pages')[page.desc] +
-							        "<p><a class='btn btn-default' href='"+ context + "/" + page.url +"'>View details &raquo;</a></p>" +
+							        "<p><a class='btn btn-default' href='"+ context + "/" + page.url +"'>查看详情 &raquo;</a></p>" +
 							    "</div>" +
 						    "</div>";
-	
+
 		return dashboard;
 	}
 	return "";
@@ -263,4 +263,3 @@ String.prototype.replaceAll = function(stringToFind,stringToReplace){
 };
 
 %>
-
