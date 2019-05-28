@@ -49,7 +49,7 @@ function drawPage() {
     }
     if (json.return.totpAuthenticatorActive) {
                     body = body + "<tr><td><label class=\"control-label\">刷新 Secret Key</label>\n</td><td><div class=\"controls\">";
-                    body = body + "<a class=\"control-label\" onclick=\"validateRefreshSecret();\">Click</a></div>\n<br></div></td></tr>";
+                    body = body + "<a class=\"control-label\" onclick=\"validateRefreshSecret();\">点击刷新</a></div>\n<br></div></td></tr>";
                     body = body + "<tr><td><label class=\"control-label\">启用 TOTP</label>\n</td><td><div class=\"controls\">";
                     if (totpEnabled != ""){
                             body += "<input type=\"checkbox\" checked name=\"totpenable\" onclick=\"validateCheckBox();\"/>\n<br><br>"+
